@@ -5,7 +5,12 @@ using UnityEngine;
 public class playerScript : MonoBehaviour
 {
     public float speed = 10f;
-    public float jumpHeight = 4f;
+    public float jumpForce = 4f;
+
+    public Transform groundPosCheck;
+    public LayerMask ground;
+
+    public bool groundCheck;
 
     private Rigidbody2D rb;
     void Start()
@@ -13,9 +18,17 @@ public class playerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
-        
+        groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
+
+        if (Input.GetKeyDown(KeyCode.Space) && groundCheck)
+        {
+            rb.AddForce(Vector3.up * jumpForce);
+        }
+
+        float moveX = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
 }
