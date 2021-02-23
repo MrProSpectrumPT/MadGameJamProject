@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,5 +30,15 @@ public class playerScript : MonoBehaviour
 
         float moveX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("enter");
+        if (col.gameObject.layer == 6)
+        {
+            Debug.Log("enter");
+            GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
+        }
     }
 }
