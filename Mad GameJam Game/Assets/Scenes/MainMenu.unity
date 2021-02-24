@@ -1669,7 +1669,7 @@ GameObject:
   - component: {fileID: 792759745}
   - component: {fileID: 792759744}
   m_Layer: 5
-  m_Name: Quit_Button
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1931,7 +1931,7 @@ GameObject:
   - component: {fileID: 826328481}
   - component: {fileID: 826328480}
   m_Layer: 5
-  m_Name: Options_Button
+  m_Name: OptionsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2326,7 +2326,7 @@ GameObject:
   - component: {fileID: 1031662911}
   - component: {fileID: 1031662910}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2861,7 +2861,7 @@ GameObject:
   - component: {fileID: 1207010574}
   - component: {fileID: 1207010573}
   m_Layer: 5
-  m_Name: Play_Button
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3595,7 +3595,7 @@ GameObject:
   - component: {fileID: 1653532430}
   - component: {fileID: 1653532429}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3912,7 +3912,7 @@ GameObject:
   - component: {fileID: 1742154115}
   - component: {fileID: 1742154114}
   m_Layer: 5
-  m_Name: Back_Button
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4150,7 +4150,7 @@ GameObject:
   - component: {fileID: 1757900505}
   - component: {fileID: 1757900504}
   m_Layer: 5
-  m_Name: Video_Button
+  m_Name: VideoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

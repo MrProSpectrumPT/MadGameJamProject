@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,7 +27,11 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
-
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        AudioManager.instance.QuitSound();
+    }
     public void disablePanel()
     {
         PauseMenu.SetActive (false);

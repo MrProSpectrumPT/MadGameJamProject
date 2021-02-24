@@ -29,5 +29,10 @@ public class AudioManager : MonoBehaviour
     {
         transform.Find("ClickSound").GetComponent<AudioSource>().Play();
     }
+    public void QuitSound()
+
+    {
+        transform.Find("QuitSound").GetComponent<AudioSource>().Play();
+    }
 
 }
