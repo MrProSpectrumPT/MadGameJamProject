@@ -43,8 +43,14 @@ public class UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+    }
     public void QuitToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
         AudioManager.instance.QuitSound();
     }
