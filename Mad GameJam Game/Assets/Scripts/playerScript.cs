@@ -25,6 +25,9 @@ public class playerScript : MonoBehaviour
     private Animator anim;
     private float moveX;
 
+    public Transform attack1Pos;
+    public Transform attack2Pos;
+    private bool attacking;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,7 +45,16 @@ public class playerScript : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
 
-        if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping && rb.velocity.y == 0)
+        if(moveX > 0 || moveX < 0 && groundCheck)
+        {
+            anim.SetFloat("move", Mathf.Abs(moveX));
+        }
+        else if(moveX == 0 && groundCheck)
+        {
+            anim.SetFloat("move", Mathf.Abs(moveX));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping)
         {
             rb.AddForce(Vector3.up * jumpForce);
             isJumping = true;
@@ -54,17 +66,24 @@ public class playerScript : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", true);
         }
-        else if (groundCheck && isJumping)
+        else if(rb.velocity.y == 0 && groundCheck && isJumping)
         {
+            isJumping = false;
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", false);
-            isJumping = false;
+        }
+
+        if(Input.GetMouseButtonDown(0) && !isJumping && !attacking)
+        {
+            attacking = true;
+            anim.SetBool(getAttack(), true);
         }
 
         if (moveX > 0 && facingRight) Flip();
+        
 
         else if (moveX < 0 && !facingRight) Flip();
-
+        
 
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
@@ -74,6 +93,55 @@ public class playerScript : MonoBehaviour
         slider.value = vida;
     }
 
+    private string getAttack()
+    {
+        int index = Random.Range(1, 3);
+        string attack = "";
+        if(index == 1)
+        {
+            attack = "Attack1";
+        }
+        else if(index == 2)
+        {
+            attack = "Attack2";
+        }
+        return attack;
+    }
+
+    public void resetAttack(int index)
+    {
+        if(index == 1) anim.SetBool("Attack1", false);
+        else if (index == 2) anim.SetBool("Attack2", false);
+        Invoke("resetAttackingBool", 0.4f);
+    }
+
+    private void resetAttackingBool()
+    {
+        attacking = false;
+    }
+
+    public void Attack1()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(attack1Pos.position, 0.5f);
+        CheckCircle(cols);
+    }
+
+    public void Attack2()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(attack2Pos.position, 0.5f);
+        CheckCircle(cols);
+    }
+
+    private void CheckCircle(Collider2D[] cols)
+    {
+        foreach (Collider2D col in cols)
+        {
+            if (col.gameObject.CompareTag("enemy"))
+            {
+                //col.gameObject.GetComponent<inimigo>().TakeDamage(10);
+            }
+        }
+    }
 
 
     private void OnCollisionEnter2D(Collision2D col)

@@ -3775,8 +3775,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9080efd10aa6364ca858b3194f5eb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distParaAtacar: 0.2
-  speed: 0.4
+  distParaAtacar: 0.1
+  speed: 0.05
   ataque: 0
   ataquePosCheck: {fileID: 541011191}
   playerMask:
