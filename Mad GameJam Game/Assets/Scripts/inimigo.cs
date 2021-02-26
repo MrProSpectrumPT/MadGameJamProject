@@ -17,7 +17,7 @@ public class inimigo : MonoBehaviour
     //CARACTERISTICAS
     public float vida;
     public float speed;
-    public float ataque;
+    int ataque;
     bool virado;
 
     //ATAQUE
@@ -62,7 +62,10 @@ public class inimigo : MonoBehaviour
                 }
             }
             
+<<<<<<< Updated upstream
             //MOVIMENTO e ATAQUE
+=======
+>>>>>>> Stashed changes
             if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
 
                 posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
@@ -91,17 +94,35 @@ public class inimigo : MonoBehaviour
     }
 
     void atacar(){
+<<<<<<< Updated upstream
         
         bool ataque = Physics2D.OverlapCircle(ataquePosCheck.position, 0.5f, playerMask);
         
         if(ataque == true){
             //acertou
             //corrigir collisao no player para ele saltar
+=======
+
+        Collider2D[] cols = Physics2D.OverlapCircleAll(ataquePosCheck.position, 0.5f);
+
+        
+        foreach (Collider2D col in cols)
+        {
+            if (col.gameObject.name == "Player")
+            {
+                col.gameObject.GetComponent<Rigidbody2D>().AddForce(col.gameObject.transform.up * 300);
+                col.gameObject.GetComponent<playerScript>().TakeDamage(ataque);
+            }
+>>>>>>> Stashed changes
         }
     }
 
-    void TakeDamage(int dano){
+    public void TakeDamage(int dano){
         vida -= dano;
+<<<<<<< Updated upstream
+=======
+        levouDano = true;
+>>>>>>> Stashed changes
     }
 
 

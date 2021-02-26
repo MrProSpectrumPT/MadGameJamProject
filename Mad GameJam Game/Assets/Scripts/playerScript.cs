@@ -74,6 +74,60 @@ public class playerScript : MonoBehaviour
         slider.value = vida;
     }
 
+<<<<<<< Updated upstream
+=======
+    private string getAttack()
+    {
+        int index = Random.Range(1, 3);
+        string attack = "";
+        if(index == 1)
+        {
+            attack = "Attack1";
+        }
+        else if(index == 2)
+        {
+            attack = "Attack2";
+        }
+        return attack;
+    }
+
+    public void resetAttack(int index)
+    {
+        if(index == 1) anim.SetBool("Attack1", false);
+        else if (index == 2) anim.SetBool("Attack2", false);
+        Invoke("resetAttackingBool", 0.4f);
+    }
+
+    private void resetAttackingBool()
+    {
+        attacking = false;
+    }
+
+    public void Attack1()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(attack1Pos.position, 0.5f);
+        CheckCircle(cols);
+    }
+
+    public void Attack2()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(attack2Pos.position, 0.5f);
+        CheckCircle(cols);
+    }
+
+    private void CheckCircle(Collider2D[] cols)
+    {
+        foreach (Collider2D col in cols)
+        {
+            if (col.gameObject.CompareTag("enemy"))
+            {
+                //MELHORAR A FORCA REPULSIVA
+                col.gameObject.GetComponent<Rigidbody2D>().AddForce(col.gameObject.transform.up * 300);
+                col.gameObject.GetComponent<inimigo>().TakeDamage(10);
+            }
+        }
+    }
+>>>>>>> Stashed changes
 
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -105,4 +159,12 @@ public class playerScript : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
+<<<<<<< Updated upstream
+=======
+
+    public void TakeDamage(int dano)
+    {
+        vidaAtual -= dano;
+    }
+>>>>>>> Stashed changes
 }
