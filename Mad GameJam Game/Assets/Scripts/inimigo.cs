@@ -17,8 +17,8 @@ public class inimigo : MonoBehaviour
     //CARACTERISTICAS
     public float vida;
     public float speed;
-    public float ataque;
-    bool virado;
+    public int ataque;
+    public bool virado;
 
     //ATAQUE
     public Transform ataquePosCheck;
@@ -102,12 +102,15 @@ public class inimigo : MonoBehaviour
         {
             if (col.gameObject.name == "Player")
             {
-               //col.gameObject.GetComponent<playerScript>().TakeDamage(ataque);
+                //FORCAS APLICADAS
+                col.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
+                
+                col.gameObject.GetComponent<playerScript>().TakeDamage(ataque);
             }
         }
     }
 
-    void TakeDamage(int dano){
+    public void TakeDamage(int dano){
         vida -= dano;
         levouDano = true;
         Animator.SetInteger("anim", 3); //dano
