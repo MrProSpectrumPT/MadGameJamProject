@@ -20,10 +20,15 @@ public class playerScript : MonoBehaviour
     public float maxVida = 100.0f;
     public static float vidaAtual;
 
+    private bool isJumping;
+    private bool facingRight;
+    private Animator anim;
+    private float moveX;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         //Set Vida
         vidaAtual = maxVida;
@@ -34,14 +39,33 @@ public class playerScript : MonoBehaviour
    
     void Update()
     {
+        moveX = Input.GetAxis("Horizontal");
         groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
 
-        if (Input.GetKeyDown(KeyCode.Space) && groundCheck)
+        if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping && rb.velocity.y == 0)
         {
             rb.AddForce(Vector3.up * jumpForce);
+            isJumping = true;
+            anim.SetBool("isJumping", true);
+            anim.SetBool("isFalling", false);
+        }
+        else if (rb.velocity.y < 0 && isJumping)
+        {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", true);
+        }
+        else if (groundCheck && isJumping)
+        {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", false);
+            isJumping = false;
         }
 
-        float moveX = Input.GetAxis("Horizontal");
+        if (moveX > 0 && facingRight) Flip();
+
+        else if (moveX < 0 && !facingRight) Flip();
+
+
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
 
@@ -74,5 +98,11 @@ public class playerScript : MonoBehaviour
 
             GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
         }
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }
