@@ -25,6 +25,9 @@ public class playerScript : MonoBehaviour
     private Animator anim;
     private float moveX;
 
+    public Transform attack1Pos;
+    public Transform attack2Pos;
+    private bool attacking;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,7 +45,16 @@ public class playerScript : MonoBehaviour
         moveX = Input.GetAxis("Horizontal");
         groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
 
-        if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping && rb.velocity.y == 0)
+        if(moveX > 0 || moveX < 0 && groundCheck)
+        {
+            anim.SetFloat("move", Mathf.Abs(moveX));
+        }
+        else if(moveX == 0 && groundCheck)
+        {
+            anim.SetFloat("move", Mathf.Abs(moveX));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping)
         {
             rb.AddForce(Vector3.up * jumpForce);
             isJumping = true;
@@ -54,17 +66,24 @@ public class playerScript : MonoBehaviour
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", true);
         }
-        else if (groundCheck && isJumping)
+        else if(rb.velocity.y == 0 && groundCheck && isJumping)
         {
+            isJumping = false;
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", false);
-            isJumping = false;
+        }
+
+        if(Input.GetMouseButtonDown(0) && !isJumping && !attacking)
+        {
+            attacking = true;
+            anim.SetBool(getAttack(), true);
         }
 
         if (moveX > 0 && facingRight) Flip();
+        
 
         else if (moveX < 0 && !facingRight) Flip();
-
+        
 
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
@@ -74,8 +93,6 @@ public class playerScript : MonoBehaviour
         slider.value = vida;
     }
 
-<<<<<<< Updated upstream
-=======
     private string getAttack()
     {
         int index = Random.Range(1, 3);
@@ -121,13 +138,10 @@ public class playerScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("enemy"))
             {
-                //MELHORAR A FORCA REPULSIVA
-                col.gameObject.GetComponent<Rigidbody2D>().AddForce(col.gameObject.transform.up * 300);
-                col.gameObject.GetComponent<inimigo>().TakeDamage(10);
+                //col.gameObject.GetComponent<inimigo>().TakeDamage(10);
             }
         }
     }
->>>>>>> Stashed changes
 
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -159,12 +173,9 @@ public class playerScript : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
-<<<<<<< Updated upstream
-=======
 
-    public void TakeDamage(int dano)
+    void TakeDamage(int dano)
     {
         vidaAtual -= dano;
     }
->>>>>>> Stashed changes
 }

@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - particles
-  - inimigo
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -40,6 +40,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2938915451
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 72907113
+    locked: 0
+  - name: Foreground02
+    uniqueID: 3636794567
+    locked: 0
+  - name: Foreground03
+    uniqueID: 1303766441
+    locked: 0
+  - name: Characters
+    uniqueID: 520115529
     locked: 0
