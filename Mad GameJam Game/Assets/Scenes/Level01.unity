@@ -1286,6 +1286,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511245959}
   m_CullTransparentMesh: 1
+--- !u!1 &541011190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 541011191}
+  m_Layer: 0
+  m_Name: arma
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &541011191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541011190}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.29, y: 0, z: 0}
+  m_LocalScale: {x: 0.44077, y: 0.44077, z: 0.44077}
+  m_Children: []
+  m_Father: {fileID: 1792555249}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &573728542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,7 +3649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1792555248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3679,9 +3709,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792555247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.27, y: -0.83, z: 0}
-  m_LocalScale: {x: 0.65292645, y: 1.2968036, z: 0.59929}
-  m_Children: []
+  m_LocalPosition: {x: 7.27, y: -0.76, z: 0}
+  m_LocalScale: {x: 0.7938932, y: 1.5767834, z: 0.7286767}
+  m_Children:
+  - {fileID: 541011191}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3745,8 +3776,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distParaAtacar: 0.2
-  speed: 5
+  speed: 0.4
   ataque: 0
+  ataquePosCheck: {fileID: 541011191}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  tempAtaque: 0.5
 --- !u!1 &1825543884
 GameObject:
   m_ObjectHideFlags: 0
