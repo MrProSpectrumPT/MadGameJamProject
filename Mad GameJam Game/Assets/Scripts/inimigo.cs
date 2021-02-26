@@ -8,9 +8,9 @@ public class inimigo : MonoBehaviour
     //JOGADOR
     GameObject player;
     bool playerAtacou;
+    Vector3 posPlayer;
 
     //dist para inimigo n ficar cima player
-    Vector3 diferencaDist;
     public float distParaAtacar; //distancia max para realizar o ataque 
     
 
@@ -22,11 +22,10 @@ public class inimigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAtacou = false;
-        player = GameObject.Find("jogador");
+        playerAtacou = true;
+        player = GameObject.Find("Player");
 
         virado = false;
-        diferencaDist = new Vector3(-2, 0, 0);
     }
 
     // Update is called once per frame
@@ -38,25 +37,24 @@ public class inimigo : MonoBehaviour
             //CENA DE FICAR VIRADO PARA O PLAYER 
             if(virado == false){
                 if(transform.position.x > player.transform.position.x){
-                    diferencaDist = new Vector3(2, 0, 0);
                     virado = true;
                     Flip();
                 }
             }
             else{
                 if(transform.position.x < player.transform.position.x){
-                    diferencaDist = new Vector3(-2, 0, 0);
                     virado = false;
                     Flip();
                 }
             }
             
-            
+            //MOVIMENTO e ATAQUE
+            if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){ //falta meter e se não tiver na animacao de ataque
 
-            transform.position = Vector2.Lerp(transform.position, player.transform.position + diferencaDist, 1.0f * Time.fixedDeltaTime);
-
-
-            if(distParaAtacar < Vector3.Distance(player.transform.position, transform.position)){
+                posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+                transform.position = Vector2.Lerp(transform.position, posPlayer, 1.0f * Time.fixedDeltaTime);
+            }
+            else{
                 atacar();
             }
         }
