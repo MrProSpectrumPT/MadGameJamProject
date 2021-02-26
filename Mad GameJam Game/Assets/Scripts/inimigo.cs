@@ -15,6 +15,7 @@ public class inimigo : MonoBehaviour
     
 
     //CARACTERISTICAS
+    public float vida;
     public float speed;
     public float ataque;
     bool virado;
@@ -25,6 +26,11 @@ public class inimigo : MonoBehaviour
     public float tempAtaque;
     float tempo;
 
+
+    ///
+    Animator Animator;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +40,14 @@ public class inimigo : MonoBehaviour
         virado = false;
 
         tempo = tempAtaque;
+
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerAtacou == true){   
+        if(playerAtacou == true && Vector3.Distance(player.transform.position, transform.position) < 5){   
 
 
             //CENA DE FICAR VIRADO PARA O PLAYER 
@@ -55,31 +63,49 @@ public class inimigo : MonoBehaviour
             }
             
             //MOVIMENTO e ATAQUE
-            if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){ //falta meter e se não tiver na animacao de ataque
+            if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
 
                 posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
                 transform.position = Vector2.Lerp(transform.position, posPlayer, speed * Time.fixedDeltaTime);
+                Animator.SetInteger("anim", 1); //correr
             }
             else{
+
                 if(tempo >= tempAtaque){
                     atacar();
                     tempo = 0;
+                    Animator.SetInteger("anim", 2); //ataque
                 }
-                tempo += Time.deltaTime;
+
+                else{
+                    Animator.SetInteger("anim", 0); //IDLE
+                    tempo += Time.deltaTime;
+                }
+                
             }
+        }
+        else{
+            //parado
+            Animator.SetInteger("anim", 0); //IDLE
         }
     }
 
     void atacar(){
         
         bool ataque = Physics2D.OverlapCircle(ataquePosCheck.position, 0.5f, playerMask);
+        
         if(ataque == true){
             //acertou
+            //corrigir collisao no player para ele saltar
         }
     }
 
+    void TakeDamage(int dano){
+        vida -= dano;
+    }
+
+
     void Flip(){
-        //GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
         transform.Rotate(0, 180, 0);
         virado = !virado;
     }
