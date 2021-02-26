@@ -58,7 +58,7 @@ public class inimigo : MonoBehaviour
             if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){ //falta meter e se não tiver na animacao de ataque
 
                 posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
-                transform.position = Vector2.Lerp(transform.position, posPlayer, 1.0f * Time.fixedDeltaTime);
+                transform.position = Vector2.Lerp(transform.position, posPlayer, speed * Time.fixedDeltaTime);
             }
             else{
                 if(tempo >= tempAtaque){
