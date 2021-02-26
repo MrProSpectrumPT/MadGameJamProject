@@ -19,6 +19,12 @@ public class inimigo : MonoBehaviour
     public float ataque;
     bool virado;
 
+    //ATAQUE
+    public Transform ataquePosCheck;
+    public LayerMask playerMask;
+    public float tempAtaque;
+    float tempo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +32,8 @@ public class inimigo : MonoBehaviour
         player = GameObject.Find("Player");
 
         virado = false;
+
+        tempo = tempAtaque;
     }
 
     // Update is called once per frame
@@ -35,15 +43,13 @@ public class inimigo : MonoBehaviour
 
 
             //CENA DE FICAR VIRADO PARA O PLAYER 
-            if(virado == false){
+            if(virado == true){
                 if(transform.position.x > player.transform.position.x){
-                    virado = true;
                     Flip();
                 }
             }
             else{
                 if(transform.position.x < player.transform.position.x){
-                    virado = false;
                     Flip();
                 }
             }
@@ -55,16 +61,26 @@ public class inimigo : MonoBehaviour
                 transform.position = Vector2.Lerp(transform.position, posPlayer, 1.0f * Time.fixedDeltaTime);
             }
             else{
-                atacar();
+                if(tempo >= tempAtaque){
+                    atacar();
+                    tempo = 0;
+                }
+                tempo += Time.deltaTime;
             }
         }
     }
 
     void atacar(){
-        //FALTA SO FAZER O ATAQUE
+        
+        bool ataque = Physics2D.OverlapCircle(ataquePosCheck.position, 0.5f, playerMask);
+        if(ataque == true){
+            //acertou
+        }
     }
 
     void Flip(){
-        GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        //GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+        transform.Rotate(0, 180, 0);
+        virado = !virado;
     }
 }
