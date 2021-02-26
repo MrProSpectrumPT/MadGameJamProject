@@ -29,7 +29,6 @@ public class inimigo : MonoBehaviour
 
     ///
     Animator Animator;
-    bool levouDano;
 
 
     // Start is called before the first frame update
@@ -43,7 +42,6 @@ public class inimigo : MonoBehaviour
         tempo = tempAtaque;
 
         Animator = GetComponent<Animator>();
-        levouDano = false;
     }
 
     // Update is called once per frame
@@ -65,10 +63,6 @@ public class inimigo : MonoBehaviour
             }
             
             //MOVIMENTO e ATAQUE
-            if(levouDano == true){
-                Animator.SetInteger("anim", 0); //idle
-                levouDano = false;
-            }
             if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
 
                 posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
@@ -82,10 +76,12 @@ public class inimigo : MonoBehaviour
                     tempo = 0;
                     Animator.SetInteger("anim", 2); //ataque
                 }
+
                 else{
                     Animator.SetInteger("anim", 0); //IDLE
                     tempo += Time.deltaTime;
                 }
+                
             }
         }
         else{
@@ -95,22 +91,17 @@ public class inimigo : MonoBehaviour
     }
 
     void atacar(){
-
-        Collider2D[] cols = Physics2D.OverlapCircleAll(ataquePosCheck.position, 0.5f);
         
-        foreach (Collider2D col in cols)
-        {
-            if (col.gameObject.name == "Player")
-            {
-               //col.gameObject.GetComponent<playerScript>().TakeDamage(ataque);
-            }
+        bool ataque = Physics2D.OverlapCircle(ataquePosCheck.position, 0.5f, playerMask);
+        
+        if(ataque == true){
+            //acertou
+            //corrigir collisao no player para ele saltar
         }
     }
 
     void TakeDamage(int dano){
         vida -= dano;
-        levouDano = true;
-        Animator.SetInteger("anim", 3); //dano
     }
 
 
