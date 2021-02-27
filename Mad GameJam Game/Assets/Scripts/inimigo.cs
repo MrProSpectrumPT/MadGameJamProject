@@ -57,7 +57,7 @@ public class inimigo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerAtacou == true && Vector3.Distance(player.transform.position, transform.position) < 10 && morreu == false){   
+        if(playerAtacou == true && Vector3.Distance(player.transform.position, transform.position) < 7 && morreu == false){   
 
             morreuCheck();
 
@@ -89,7 +89,7 @@ public class inimigo : MonoBehaviour
             }
             else if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
 
-                posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+                posPlayer = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
                 transform.position = Vector2.Lerp(transform.position, posPlayer, speed * Time.fixedDeltaTime);
                 Animator.SetInteger("anim", 1); //correr
             }
@@ -141,10 +141,10 @@ public class inimigo : MonoBehaviour
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.AddForce(transform.up * 200);
             if(virado == true){
-                rb.AddForce(transform.right * -150);
+                rb.AddForce(transform.right * 150);
             }
             else{
-                rb.AddForce(transform.right * 150);
+                rb.AddForce(transform.right * -150);
             }
         }
     }
