@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerScript : MonoBehaviour
 {
@@ -53,7 +54,7 @@ public class playerScript : MonoBehaviour
         anim = GetComponent<Animator>();
 
         //Set Vida
-        vidaAtual = maxVida;
+        vidaAtual = 10;
 
         canAttack = Travel.canAttack;
         weapon = Travel.weaponID;
@@ -63,6 +64,9 @@ public class playerScript : MonoBehaviour
    
     void Update()
     {
+
+        morreuCheck();
+
         if (inCutScene) return;
 
         moveX = Input.GetAxis("Horizontal");
@@ -291,6 +295,12 @@ public class playerScript : MonoBehaviour
         anim.SetTrigger("hit");
         vidaAtual -= dano;
         Travel.vida = vidaAtual;
+    }
+
+    void morreuCheck(){
+        if(vidaAtual <= 0){
+            StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(SceneManager.GetActiveScene().buildIndex));
+        }  
     }
 
 }
