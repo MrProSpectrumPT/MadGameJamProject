@@ -3706,6 +3706,9 @@ MonoBehaviour:
   attack1Pos: {fileID: 2073769176}
   attack2Pos: {fileID: 484208740}
   inCutScene: 0
+  weapon: 1
+  canAttack: 1
+  cam: {fileID: 0}
 --- !u!50 &1871454904
 Rigidbody2D:
   serializedVersion: 4
@@ -5016,6 +5019,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8668633878933656222, guid: 5be8d26d3943c1c4e82dbf5578df7433, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6021945027695144077, guid: 5be8d26d3943c1c4e82dbf5578df7433, type: 3}
       propertyPath: m_RootOrder
       value: 10
