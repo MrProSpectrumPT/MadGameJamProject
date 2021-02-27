@@ -150,7 +150,6 @@ public class inimigo : MonoBehaviour
         if(vida < 0){
             Animator.SetInteger("anim", 4); //morte
             morreu = true;
-            gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
     }
 }
