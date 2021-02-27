@@ -32,6 +32,8 @@ public class Scene1 : MonoBehaviour
     public Animator TextIntroduction;
     public loadlevel level;
     public GameObject introduction;
+
+    public AudioSource sword;
     void Start()
     {
         StartCoroutine(IntroductionMovie());
@@ -54,9 +56,11 @@ public class Scene1 : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         rouboNPC1.SetTrigger("attack");
+        sword.Play();
 
         yield return new WaitForSeconds(0.5f);
         rouboNPC2.SetTrigger("attack2");
+        sword.Play();
 
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("cut2");
