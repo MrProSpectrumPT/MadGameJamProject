@@ -146,8 +146,10 @@ public class playerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        Debug.Log("enter");
         if (col.gameObject.layer == 6)
         {
+            Debug.Log("enter");
             GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
         }
 

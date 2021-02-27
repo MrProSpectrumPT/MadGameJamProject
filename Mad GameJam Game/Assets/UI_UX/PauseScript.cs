@@ -17,7 +17,7 @@ public class PauseScript : MonoBehaviour
         if (Time.timeScale == 1)
         {
             gameIsPaused = false;
-            //PauseMenuCanvas.SetActive(false);
+            PauseMenuCanvas.SetActive(false);
         }
     }
 
