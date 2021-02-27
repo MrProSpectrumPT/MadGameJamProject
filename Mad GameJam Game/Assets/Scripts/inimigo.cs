@@ -19,7 +19,7 @@ public class inimigo : MonoBehaviour
     public float speed;
     public int ataque;
     public bool virado;
-    bool morreu;
+    public bool morreu;
 
     //ATAQUE
     public Transform ataquePosCheck;
