@@ -18,6 +18,8 @@ public class Scene3 : MonoBehaviour
     private GameObject ui;
     GameObject barras;
 
+    public AudioSource musicTensa;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,11 @@ public class Scene3 : MonoBehaviour
             
             GameObject.Find("Player").GetComponent<playerScript>().speed = 0f;
 
+            //sons
+            if(musicTensa.isPlaying == false){
+                musicTensa.Play();
+            }
+
             //CAMERA
             GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 3.5f;
             GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset = new Vector3(0.2f,GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset.y,GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset.z);
@@ -53,8 +60,9 @@ public class Scene3 : MonoBehaviour
 
 
             if(tempoPrim > 5){
+                musicTensa.Stop();
                 barras.SetActive(false);
-               // GameObject.Find("Enemys").gameObject.SetActive(true);
+                GameObject.Find("Enemys").gameObject.SetActive(true);
                 GameObject.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(true);
                 GameObject.Find("UI").transform.Find("UI-GAME").gameObject.transform.Find("MyMission").GetComponent<UnityEngine.UI.Text>().text = "...vai para casa...";
 
@@ -62,14 +70,15 @@ public class Scene3 : MonoBehaviour
                 GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 5f;
                 GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset = new Vector3(0,GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset.y,GameObject.Find("Main Camera").GetComponent<Camera>().GetComponent<cameraControl>().offset.z);
                 
-                GameObject.Find("Player").GetComponent<playerScript>().speed = 10f;
+                GameObject.Find("Player").GetComponent<playerScript>().speed = 9f;
                 podeSegunda = true;
+
             }
         }
 
         //ativado no player se podeSegunda == true
-        if(segundaSCENE == false){
-            GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(4);
+        if(segundaSCENE == true){
+            StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(4));
         }
     }
 }
