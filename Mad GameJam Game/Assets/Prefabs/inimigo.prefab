@@ -70,10 +70,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6021945027695144077}
   - component: {fileID: 6021945027695144076}
-  - component: {fileID: 6021945027695144078}
   - component: {fileID: 6021945027695144072}
   - component: {fileID: 6021945027695144073}
   - component: {fileID: -8668633878933656222}
+  - component: {fileID: 1211831172576653665}
   m_Layer: 8
   m_Name: inimigo
   m_TagString: enemy
@@ -148,32 +148,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6021945027695144078
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6021945027695144083}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.061587498, y: -0.16276658}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.84, y: 1.37}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25442418, y: 0.80047977}
-  m_EdgeRadius: 0
 --- !u!114 &6021945027695144072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +165,7 @@ MonoBehaviour:
   speed: 0.3
   ataque: 1
   virado: 0
+  morreu: 0
   ataquePosCheck: {fileID: 6021945026514647179}
   playerMask:
     serializedVersion: 2
@@ -241,3 +216,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &1211831172576653665
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021945027695144083}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.05470565, y: -0.15972626}
+  m_Size: {x: 0.21611139, y: 0.8064084}
+  m_Direction: 0

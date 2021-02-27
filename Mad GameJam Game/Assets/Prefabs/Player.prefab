@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4254672640061467561}
   - component: {fileID: 4254672640061467560}
   - component: {fileID: 4254672640061467563}
-  - component: {fileID: 1868040559139956907}
+  - component: {fileID: 1771365385646113246}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -224,8 +224,8 @@ MonoBehaviour:
   attack1Pos: {fileID: 4254672639082394465}
   attack2Pos: {fileID: 4254672639899053969}
   inCutScene: 0
-  weapon: 0
-  canAttack: 0
+  weapon: 1
+  canAttack: 1
   cam: {fileID: 0}
 --- !u!114 &4254672640061467560
 MonoBehaviour:
@@ -259,8 +259,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1868040559139956907
-BoxCollider2D:
+--- !u!70 &1771365385646113246
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -272,16 +272,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0032059737, y: 0.013540238}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.14657, y: 0.39521796}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.009445953, y: -0.006349659}
+  m_Size: {x: 0.15822907, y: 0.42206153}
+  m_Direction: 0
