@@ -19,7 +19,7 @@ public class inimigo : MonoBehaviour
     public float speed;
     public int ataque;
     public bool virado;
-    bool morreu;
+    public bool morreu;
 
     //ATAQUE
     public Transform ataquePosCheck;
@@ -139,12 +139,13 @@ public class inimigo : MonoBehaviour
             groundCheck = false;
             tempoDano = 0;
 
-            GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
+            GetComponent<Rigidbody2D>().AddForce(transform.up * 180);
+            
             if(virado == false){
-                GetComponent<Rigidbody2D>().AddForce(transform.right * 100);
+                GetComponent<Rigidbody2D>().AddForce(transform.right * -100);
             }
             else{
-                GetComponent<Rigidbody2D>().AddForce(transform.right * -100);
+                GetComponent<Rigidbody2D>().AddForce(transform.right * 100);
             }
         }
     }
