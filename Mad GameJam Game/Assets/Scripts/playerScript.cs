@@ -16,9 +16,8 @@ public class playerScript : MonoBehaviour
     private Rigidbody2D rb;
 
     //control Vida
-    public Slider slider;
-    public float maxVida = 100.0f;
-    public static float vidaAtual;
+    public int maxVida = 10;
+    public static int vidaAtual;
 
     private bool isJumping;
     private bool facingRight;
@@ -37,8 +36,6 @@ public class playerScript : MonoBehaviour
 
         //Set Vida
         vidaAtual = maxVida;
-        slider.maxValue = maxVida;
-        slider.value = maxVida;
     }
 
    
@@ -92,10 +89,6 @@ public class playerScript : MonoBehaviour
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
 
-
-    public void AtualizarVida(float vida){
-        slider.value = vida;
-    }
 
     private string getAttack()
     {
@@ -152,20 +145,6 @@ public class playerScript : MonoBehaviour
     {
         if (col.gameObject.layer == 6)
         {
-            GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
-        }
-
-
-        if(col.gameObject.tag == "inimigo"){
-            //perde vida
-            vidaAtual -= 10;
-            AtualizarVida(vidaAtual);
-
-            //forças aplicadas à toa
-            Vector3 dir = col.contacts[0].point - new Vector2(transform.position.x, transform.position.y);
-            dir = -dir.normalized;
-            rb.AddForce(dir * 300);
-
             GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
         }
     }
