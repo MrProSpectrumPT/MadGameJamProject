@@ -224,6 +224,20 @@ public class playerScript : MonoBehaviour
             StartCoroutine(scene1.StartCutScene3());
             Destroy(col.gameObject);
         }
+
+        if (col.gameObject.name == "trigger2")
+        {
+            if(Scene3.numKills >= 6){
+                Scene3.primeiraSCENE = true;
+            }
+        }
+
+        if (col.gameObject.name == "trigger1")
+        {
+            if(Scene3.primeiraSCENE == true){
+                Scene3.segundaSCENE = true;
+            }   
+        }
     }
 
     private void Flip()
