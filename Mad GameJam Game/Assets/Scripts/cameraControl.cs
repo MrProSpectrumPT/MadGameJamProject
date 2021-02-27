@@ -28,6 +28,10 @@ public class cameraControl : MonoBehaviour
 
     public GameObject enemyPrefab;
     public Transform spawnPos;
+    private bool send;
+    public bool canSpeak;
+
+    public GameObject enemy;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -47,6 +51,21 @@ public class cameraControl : MonoBehaviour
             Debug.Log("dead");
             transform.position = new Vector3(boundInicio.position.x, transform.position.y, transform.position.z);
         }
+    }
+
+    private void Update()
+    {
+        enemy = GameObject.FindGameObjectWithTag("enemy");
+        if (enemy == null) return;
+        if (enemy.GetComponent<inimigo>().morreu && target.GetComponent<playerScript>().canAttack)
+        {
+            if (!send)
+            {
+                send = true;
+                sendMissionSearch();
+            }
+        }
+        
     }
 
     public IEnumerator startAnimationRoubo()
@@ -115,6 +134,14 @@ public class cameraControl : MonoBehaviour
         mission.text = "Abata o vilão";
         missionText.SetTrigger("fadeIn");
         Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
+    }
+
+    public void sendMissionSearch()
+    {
+        missionText.SetTrigger("fadeOut");
+        mission.text = "Procure informações sobre os vilões";
+        missionText.SetTrigger("fadeIn");
+        canSpeak = true;
     }
 }
 
