@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4254672640061467561}
   - component: {fileID: 4254672640061467560}
   - component: {fileID: 4254672640061467563}
-  - component: {fileID: 1771365385646113246}
+  - component: {fileID: 7216549724674487863}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -195,7 +195,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  jumpForce: 400
+  jumpForce: 600
   groundPosCheck: {fileID: 4254672640043247964}
   ground:
     serializedVersion: 2
@@ -224,9 +224,10 @@ MonoBehaviour:
   attack1Pos: {fileID: 4254672639082394465}
   attack2Pos: {fileID: 4254672639899053969}
   inCutScene: 0
-  weapon: 1
-  canAttack: 1
-  cam: {fileID: 0}
+  weapon: 0
+  canAttack: 0
+  scene: {fileID: 0}
+  dialogCount: 0
 --- !u!114 &4254672640061467560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +260,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &1771365385646113246
+--- !u!70 &7216549724674487863
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,6 +273,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009445953, y: -0.006349659}
-  m_Size: {x: 0.15822907, y: 0.42206153}
+  m_Offset: {x: -0.0014254571, y: 0.021699477}
+  m_Size: {x: 0.16256694, y: 0.42653543}
   m_Direction: 0
