@@ -31,6 +31,7 @@ public class loja : MonoBehaviour
         control.target.GetComponent<playerScript>().inCutScene = false;
         control.target.GetComponent<Animator>().SetBool("cutScene", false);
 
+        control.SpawnEnemy();
         lojaUI.SetActive(false);
     }
 }

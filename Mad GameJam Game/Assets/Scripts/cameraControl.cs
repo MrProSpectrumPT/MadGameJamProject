@@ -25,6 +25,9 @@ public class cameraControl : MonoBehaviour
     public Animator missionText;
     public Text mission;
     private Vector3 relvel;
+
+    public GameObject enemyPrefab;
+    public Transform spawnPos;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -104,6 +107,11 @@ public class cameraControl : MonoBehaviour
         target.GetComponent<Animator>().SetBool("cutScene", false);
 
         target.GetComponent<playerScript>().inCutScene = false;
+    }
+
+    public void SpawnEnemy()
+    {
+        Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
     }
 }
 

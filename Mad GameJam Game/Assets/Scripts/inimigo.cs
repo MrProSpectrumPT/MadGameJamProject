@@ -137,15 +137,6 @@ public class inimigo : MonoBehaviour
             levouDano = true;
             groundCheck = false;
             tempoDano = 0;
-
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            rb.AddForce(transform.up * 200);
-            if(virado == true){
-                rb.AddForce(transform.right * 150);
-            }
-            else{
-                rb.AddForce(transform.right * -150);
-            }
         }
     }
 
