@@ -3221,7 +3221,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5728,7 +5728,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6786,7 +6786,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6915,7 +6915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &813801760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8158,7 +8158,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9347,7 +9347,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10124,7 +10124,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11648,7 +11648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1294808904}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 50.21, y: 2.6161096, z: -2.4014578}
+  m_LocalPosition: {x: 53.36, y: 2.6161096, z: -2.4014578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18056,7 +18056,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -18378,6 +18378,7 @@ GameObject:
   - component: {fileID: 1910504836}
   - component: {fileID: 1910504837}
   - component: {fileID: 1910504838}
+  - component: {fileID: 1910504839}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18516,6 +18517,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1910504839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910504832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5acecac6b9523d40b7fd2b8b0d450e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPositionX: 0
+  MinPositionX: 0
+  target: {fileID: 0}
+  BoundsMax: {fileID: 0}
+  BoundsMin: {fileID: 0}
+  smoothSpeed: 0.125
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1914221212
 GameObject:
   m_ObjectHideFlags: 0
@@ -23461,7 +23481,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2017388765
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: -1
   m_Sprite: {fileID: 8958670535985375444, guid: 3a391c82fc54e0443b4e6656d40bdfab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
