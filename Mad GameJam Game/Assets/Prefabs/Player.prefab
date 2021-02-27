@@ -40,7 +40,7 @@ AudioSource:
   m_GameObject: {fileID: 4391798291634847281}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be0c6fe88f10b73429f35463e07d21d6, type: 2}
   m_audioClip: {fileID: 8300000, guid: c5f449cdb0a29444985e1529c9459551, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.339
@@ -335,17 +335,19 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: 0
   maxVida: 10
-  facingRight: 1
+  facingRight: 0
   attack1Pos: {fileID: 4391798292879327375}
   attack2Pos: {fileID: 4391798292329661491}
   inCutScene: 0
   weapon: 0
   canAttack: 0
-  scene: {fileID: 0}
+  scene1: {fileID: 0}
   dialogCount: 0
   hitSom: {fileID: 4391798291634847295}
   atacarSom: {fileID: 4391798293343484459}
   correrSom: {fileID: 4391798292618236162}
+  textSleep: {fileID: 0}
+  canSleep: 0
 --- !u!114 &4391798292542543585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +420,7 @@ AudioSource:
   m_GameObject: {fileID: 4391798292618236164}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be0c6fe88f10b73429f35463e07d21d6, type: 2}
   m_audioClip: {fileID: 8300000, guid: c3b08d1b320a41b40a312d5382bd05c6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -575,7 +577,7 @@ AudioSource:
   m_GameObject: {fileID: 4391798293343484461}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be0c6fe88f10b73429f35463e07d21d6, type: 2}
   m_audioClip: {fileID: 8300000, guid: dcc5e94a1f02b774698229b52528f80c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4

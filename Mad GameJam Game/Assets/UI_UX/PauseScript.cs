@@ -9,15 +9,22 @@ public class PauseScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (PauseMenuCanvas == null)
         {
-            gameIsPaused = !gameIsPaused;
-            PauseGame();
+            PauseMenuCanvas = GameObject.Find("Travel").transform.Find("PauseMenuCanvas").gameObject;
         }
-        if (Time.timeScale == 1)
+        else
         {
-            gameIsPaused = false;
-            PauseMenuCanvas.SetActive(false);
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                gameIsPaused = !gameIsPaused;
+                PauseGame();
+            }
+            if (Time.timeScale == 1)
+            {
+                gameIsPaused = false;
+                PauseMenuCanvas.SetActive(false);
+            }
         }
     }
 

@@ -21,4 +21,19 @@ public class loadlevel : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(index);
     }
+
+    public IEnumerator goToHome(GameObject player)
+    {
+        anim.SetTrigger("load");
+        yield return new WaitForSeconds(1f);
+        anim.SetTrigger("loadnext");
+
+        GameObject.Find("Main Camera").GetComponent<cameraControl>().enabled = true;
+        player.transform.position = GameObject.Find("spawnPlayer").transform.position;
+        GameObject.Find("Main Camera").GetComponent<cameraControl>().offset = new Vector3(0, 1.5f, -10);
+        GameObject.Find("Cenario").transform.Find("sky").gameObject.transform.position = new Vector3(
+            GameObject.Find("Cenario").transform.Find("sky").gameObject.transform.position.x,
+            GameObject.Find("Cenario").transform.Find("sky").gameObject.transform.position.y + 3.2f,
+            GameObject.Find("Cenario").transform.Find("sky").gameObject.transform.position.z);
+    }
 }

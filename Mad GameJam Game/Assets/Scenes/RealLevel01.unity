@@ -6317,25 +6317,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
-      propertyPath: scene
-      value: 
-      objectReference: {fileID: 620260950}
-    - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
       propertyPath: scene1
       value: 
       objectReference: {fileID: 620260950}
-    - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
-      propertyPath: weapon
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
-      propertyPath: canAttack
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
-      propertyPath: facingRight
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4391798292542543585, guid: 083e779986aefae488cba85df8751cef, type: 3}
       propertyPath: PauseMenuCanvas
       value: 
@@ -13631,18 +13615,6 @@ PrefabInstance:
     - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
       propertyPath: m_LocalPosition.x
