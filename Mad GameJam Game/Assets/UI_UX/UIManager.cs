@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public GameObject VideoMenu;
     public GameObject AudioMenu;
 
+    public AudioSource audio;
+
     void Awake()
     {
         if(instance == null)
@@ -38,6 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void Resume()
     {
+        AudioListener.pause = false;
         Time.timeScale = 1;
     }
     public void QuitToMainMenu()
