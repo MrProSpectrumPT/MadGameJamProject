@@ -28,14 +28,6 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    private void Start()
-    {
-        OptionsMenu = GameObject.Find("PauseMenuCanvas").transform.Find("OptionsMenu").gameObject;
-        PauseMenu = GameObject.Find("PauseMenuCanvas").transform.Find("PauseMenu").gameObject;
-        VideoMenu = GameObject.Find("PauseMenuCanvas").transform.Find("VideoMenu").gameObject;
-        AudioMenu = GameObject.Find("PauseMenuCanvas").transform.Find("AudioMenu").gameObject;
-    }
-
     private void Update()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)

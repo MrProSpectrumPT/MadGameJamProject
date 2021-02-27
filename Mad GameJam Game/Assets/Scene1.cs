@@ -28,14 +28,13 @@ public class Scene1 : MonoBehaviour
     public bool canSpeak;
 
     public GameObject enemy;
+
+    public Animator TextIntroduction;
+    public loadlevel level;
+    public GameObject introduction;
     void Start()
     {
-        player.GetComponent<playerScript>().inCutScene = true;
-        BlackBars.SetActive(true);
-
-        Blood.SetActive(false);
-        gameUi.SetActive(false);
-        StartCoroutine(StartCinematicScene());
+        StartCoroutine(IntroductionMovie());
     }
 
     private void Update()
@@ -83,7 +82,7 @@ public class Scene1 : MonoBehaviour
 
     private IEnumerator StartCinematicScene()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         Debug.Log("grito!");
         yield return new WaitForSeconds(0.5f);
         player.GetComponent<SpriteRenderer>().transform.Rotate(0, 180f, 0);
@@ -125,5 +124,27 @@ public class Scene1 : MonoBehaviour
         mission.text = "Procure informações sobre os vilões";
         missionText.SetTrigger("fadeIn");
         canSpeak = true;
+    }
+
+    public IEnumerator IntroductionMovie()
+    {
+        introduction.SetActive(true);
+        player.GetComponent<playerScript>().inCutScene = true;
+        BlackBars.SetActive(false);
+        Blood.SetActive(false);
+        gameUi.SetActive(false);
+        TextIntroduction.SetTrigger("open");
+        yield return new WaitForSeconds(5f);
+        StartCoroutine(level.loadStartGame());
+    }
+
+    public void startGame()
+    {
+        player.GetComponent<playerScript>().inCutScene = true;
+        BlackBars.SetActive(true);
+        Blood.SetActive(false);
+        gameUi.SetActive(false);
+        introduction.SetActive(false);
+        StartCoroutine(StartCinematicScene());
     }
 }
