@@ -234,7 +234,7 @@ public class playerScript : MonoBehaviour
 
         if (col.gameObject.name == "trigger1")
         {
-            if(Scene3.primeiraSCENE == true){
+            if(Scene3.podeSegunda == true){
                 Scene3.segundaSCENE = true;
             }   
         }
