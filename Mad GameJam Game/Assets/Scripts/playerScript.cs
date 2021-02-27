@@ -37,8 +37,6 @@ public class playerScript : MonoBehaviour
 
 
 
-<<<<<<< Updated upstream
-=======
     public int dialogCount;
 
     //SONS
@@ -46,7 +44,6 @@ public class playerScript : MonoBehaviour
     public AudioSource atacarSom;
     public AudioSource correrSom;
 
->>>>>>> Stashed changes
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -214,11 +211,8 @@ public class playerScript : MonoBehaviour
 
     public void TakeDamage(int dano)
     {
-<<<<<<< Updated upstream
-=======
         hitSom.Play();
         anim.SetTrigger("hit");
->>>>>>> Stashed changes
         vidaAtual -= dano;
     }
 
