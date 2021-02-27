@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distParaAtacar: 1.7
   vida: 20
-  speed: 0.3
+  speed: 0.35
   ataque: 1
   virado: 0
   morreu: 0
@@ -457,7 +457,7 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 1
-  tempAtaque: 0.6
+  tempAtaque: 0.8
   groundPosCheck: {fileID: 6021945026213981289}
   ground:
     serializedVersion: 2
