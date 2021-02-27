@@ -33,9 +33,17 @@ public class playerScript : MonoBehaviour
 
     public bool canAttack = false;
 
-    public Scene1 scene;
+    public cameraControl cam;
+
+
 
     public int dialogCount;
+
+    //SONS
+    public AudioSource hitSom;
+    public AudioSource atacarSom;
+    public AudioSource correrSom;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,10 +64,20 @@ public class playerScript : MonoBehaviour
         if(moveX > 0 || moveX < 0 && groundCheck)
         {
             anim.SetFloat("move", Mathf.Abs(moveX));
+
+            if(correrSom.isPlaying == false){
+                correrSom.volume = Random.Range(0.2f, 0.5f);
+                correrSom.pitch = Random.Range(1.1f, 1.4f);
+                correrSom.Play();
+            }
         }
         else if(moveX == 0 && groundCheck)
         {
+            correrSom.Stop();
             anim.SetFloat("move", Mathf.Abs(moveX));
+        }
+        else{
+            correrSom.Stop();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping)
@@ -85,6 +103,7 @@ public class playerScript : MonoBehaviour
         { 
             if (Input.GetMouseButtonDown(0) && !isJumping && !attacking)
             {
+                correrSom.Stop();
                 attacking = true;
                 anim.SetBool(getAttack(weapon), true);      
             }
@@ -140,18 +159,22 @@ public class playerScript : MonoBehaviour
 
     public void Attack1()
     {
+        atacarSom.pitch = Random.Range(1.8f, 2.4f);
         Collider2D[] cols = Physics2D.OverlapCircleAll(attack1Pos.position, 0.5f);
         CheckCircle(cols);
     }
 
     public void Attack2()
     {
+        atacarSom.pitch = Random.Range(1f, 1.1f);
         Collider2D[] cols = Physics2D.OverlapCircleAll(attack2Pos.position, 0.5f);
         CheckCircle(cols);
     }
 
     private void CheckCircle(Collider2D[] cols)
     {
+        atacarSom.Play();
+        
         foreach (Collider2D col in cols)
         {
             if (col.gameObject.CompareTag("enemy"))
@@ -175,7 +198,7 @@ public class playerScript : MonoBehaviour
         if (col.gameObject.CompareTag("cutScene3"))
         {
             Debug.Log("hye");
-            StartCoroutine(scene.StartCutScene3());
+            StartCoroutine(cam.StartCutScene3());
             Destroy(col.gameObject);
         }
     }
@@ -188,6 +211,7 @@ public class playerScript : MonoBehaviour
 
     public void TakeDamage(int dano)
     {
+        hitSom.Play();
         anim.SetTrigger("hit");
         vidaAtual -= dano;
     }
