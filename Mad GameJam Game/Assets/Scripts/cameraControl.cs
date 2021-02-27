@@ -15,10 +15,14 @@ public class cameraControl : MonoBehaviour
 
     public Transform move1, move2;
     private bool movePlayer;
+    public GameObject BlackBars;
 
+    private Vector3 relvel;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        target.GetComponent<playerScript>().inCutScene = true;
+        BlackBars.SetActive(true);
         StartCoroutine(StartCinematicScene());
     }
     void FixedUpdate()
@@ -31,13 +35,8 @@ public class cameraControl : MonoBehaviour
             transform.position = new Vector3(boundInicio.position.x, transform.position.y, transform.position.z);
         }
 
-        if (movePlayer)
-        {
-            if(target.position == move2.position)
-            {
-                movePlayer = false;
-            }
-            target.position = Vector3.Lerp(target.position, move2.position, 0.03f);
+        if (movePlayer){
+            target.position = Vector3.SmoothDamp(target.position, move2.position, ref relvel, 0.01f * Time.deltaTime);
         }
     }
 
@@ -50,6 +49,17 @@ public class cameraControl : MonoBehaviour
         yield return new WaitForSeconds(3f);
         target.GetComponent<Animator>().SetTrigger("cutScene");
         movePlayer = true;
+
+        yield return new WaitForSeconds(2.5f);
+
+        roubo.gameObject.SetActive(false);
+
+        anim.enabled = false;
+        BlackBars.SetActive(false);
+
+        target.GetComponent<playerScript>().inCutScene = false;
+        target.GetComponent<Animator>().SetTrigger("idle");
+        movePlayer = false;
     }
 
     private IEnumerator StartCinematicScene()
