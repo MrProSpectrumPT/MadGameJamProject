@@ -7,6 +7,7 @@ TagManager:
   - particles
   - enemy
   - cutScene3
+  - boundMax
   layers:
   - Default
   - TransparentFX

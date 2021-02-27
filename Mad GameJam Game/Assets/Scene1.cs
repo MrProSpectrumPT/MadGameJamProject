@@ -34,6 +34,7 @@ public class Scene1 : MonoBehaviour
     public GameObject introduction;
 
     public AudioSource sword;
+    public bool canSwitch;
     void Start()
     {
         StartCoroutine(IntroductionMovie());
@@ -125,7 +126,7 @@ public class Scene1 : MonoBehaviour
     public void sendMissionSearch()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Procure informações sobre os vilões";
+        mission.text = "Procure informaçoes sobre os viloes";
         missionText.SetTrigger("fadeIn");
         canSpeak = true;
     }
@@ -150,5 +151,14 @@ public class Scene1 : MonoBehaviour
         gameUi.SetActive(false);
         introduction.SetActive(false);
         StartCoroutine(StartCinematicScene());
+    }
+
+    public void canGoToLevel2()
+    {
+        missionText.SetTrigger("fadeOut");
+        mission.text = "Siga o rasto de sangue";
+        missionText.SetTrigger("fadeIn");
+
+        canSwitch = true;
     }
 }
