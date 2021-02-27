@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - cutScene3
   - boundMax
+  - boundMaxLevel2
   layers:
   - Default
   - TransparentFX

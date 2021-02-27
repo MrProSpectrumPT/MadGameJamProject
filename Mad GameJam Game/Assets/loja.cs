@@ -31,6 +31,9 @@ public class loja : MonoBehaviour
         scene.player.GetComponent<playerScript>().inCutScene = false;
         scene.player.GetComponent<Animator>().SetBool("cutScene", false);
 
+        Travel.weaponID = weapon;
+        Travel.canAttack = true;
+
         scene.SpawnEnemy();
         lojaUI.SetActive(false);
     }

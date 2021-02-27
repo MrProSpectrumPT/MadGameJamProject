@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class sons : MonoBehaviour
+public class Travel : MonoBehaviour
 {
-    public static sons instance;
+    public static Travel instance;
 
+    public static int weaponID = 0;
+    public static bool canAttack = false;
+    public static int vida = 10;
     private void Awake()
     {
         if(instance == null)

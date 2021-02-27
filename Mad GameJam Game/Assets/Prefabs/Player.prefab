@@ -181,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4391798292329661492}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.516, y: 0.0208, z: 0}
+  m_LocalPosition: {x: 0.476, y: 0.0208, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4391798292542543596}
@@ -335,11 +335,12 @@ MonoBehaviour:
     m_Bits: 64
   groundCheck: 0
   maxVida: 10
+  facingRight: 1
   attack1Pos: {fileID: 4391798292879327375}
   attack2Pos: {fileID: 4391798292329661491}
   inCutScene: 0
-  weapon: 1
-  canAttack: 1
+  weapon: 0
+  canAttack: 0
   scene: {fileID: 0}
   dialogCount: 0
   hitSom: {fileID: 4391798291634847295}
