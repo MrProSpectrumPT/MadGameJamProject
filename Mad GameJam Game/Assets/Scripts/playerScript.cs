@@ -33,7 +33,7 @@ public class playerScript : MonoBehaviour
 
     public bool canAttack = false;
 
-    public cameraControl cam;
+    public Scene1 scene;
 
 
 
@@ -198,7 +198,7 @@ public class playerScript : MonoBehaviour
         if (col.gameObject.CompareTag("cutScene3"))
         {
             Debug.Log("hye");
-            StartCoroutine(cam.StartCutScene3());
+            StartCoroutine(scene.StartCutScene3());
             Destroy(col.gameObject);
         }
     }
