@@ -15003,6 +15003,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4391798292329661491, guid: 083e779986aefae488cba85df8751cef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.476
+      objectReference: {fileID: 0}
     - target: {fileID: 4391798292542543584, guid: 083e779986aefae488cba85df8751cef, type: 3}
       propertyPath: weapon
       value: 0
@@ -15066,6 +15070,10 @@ PrefabInstance:
     - target: {fileID: 4391798292542543597, guid: 083e779986aefae488cba85df8751cef, type: 3}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391798292879327375, guid: 083e779986aefae488cba85df8751cef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.376
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 083e779986aefae488cba85df8751cef, type: 3}
