@@ -36,14 +36,6 @@ public class cameraControl2 : MonoBehaviour
             BoundsMin.SetActive(true);
             transform.position = new Vector3(MinPositionX, transform.position.y, transform.position.z);
         }
-        else
-        {
-            BoundsMax.SetActive(false);
-            BoundsMin.SetActive(false);
-            Vector3 desiredPosition = target.position + offset;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition;
-        } 
     }
 }
 
