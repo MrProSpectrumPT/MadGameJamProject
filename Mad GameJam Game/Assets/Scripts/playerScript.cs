@@ -29,11 +29,6 @@ public class playerScript : MonoBehaviour
     private bool attacking;
 
     public bool inCutScene;
-    public int weapon;
-
-    public bool canAttack = false;
-
-    public cameraControl cam;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -79,13 +74,10 @@ public class playerScript : MonoBehaviour
             anim.SetBool("isFalling", false);
         }
 
-        if (canAttack)
-        { 
-            if (Input.GetMouseButtonDown(0) && !isJumping && !attacking)
-            {
-                attacking = true;
-                anim.SetBool(getAttack(weapon), true);      
-            }
+        if(Input.GetMouseButtonDown(0) && !isJumping && !attacking)
+        {
+            attacking = true;
+            anim.SetBool(getAttack(), true);
         }
 
         if (moveX > 0 && facingRight) Flip();
@@ -98,26 +90,17 @@ public class playerScript : MonoBehaviour
     }
 
 
-    private string getAttack(int indexWeapon)
+    private string getAttack()
     {
+        int index = Random.Range(1, 3);
         string attack = "";
-        if (indexWeapon == 1)
+        if(index == 1)
         {
-            int index = Random.Range(1, 3);
-            if (index == 1)
-            {
-                attack = "Attack1";
-            }
-            else if (index == 2)
-            {
-                attack = "Attack2";
-            }
-        }else if(indexWeapon == 2){
-            attack = "attack3";
+            attack = "Attack1";
         }
-        else if (indexWeapon == 3)
+        else if(index == 2)
         {
-            attack = "attack4";
+            attack = "Attack2";
         }
         return attack;
     }
@@ -126,8 +109,6 @@ public class playerScript : MonoBehaviour
     {
         if(index == 1) anim.SetBool("Attack1", false);
         else if (index == 2) anim.SetBool("Attack2", false);
-        else if (index == 3) anim.SetBool("attack3", false);
-        else if (index == 4) anim.SetBool("attack4", false);
         Invoke("resetAttackingBool", 0.4f);
     }
 
@@ -164,17 +145,7 @@ public class playerScript : MonoBehaviour
     {
         if (col.gameObject.layer == 6)
         {
-            //GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.CompareTag("cutScene3"))
-        {
-            Debug.Log("hye");
-            StartCoroutine(cam.StartCutScene3());
-            Destroy(col.gameObject);
+            GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
         }
     }
 

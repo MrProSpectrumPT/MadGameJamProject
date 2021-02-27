@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class cameraControl : MonoBehaviour
 {
@@ -12,27 +11,18 @@ public class cameraControl : MonoBehaviour
 
     public Transform boundInicio, boundFim;
 
-    public Animator rouboNPC1;
-    public Animator rouboNPC2;
-    public GameObject Blood;
-    public GameObject Roubo;
+    public Animator roubo;
 
     public Transform move1, move2;
     private bool movePlayer;
     public GameObject BlackBars;
-    public GameObject gameUi;
 
-    public Animator missionText;
-    public Text mission;
     private Vector3 relvel;
     private void Start()
     {
         anim = GetComponent<Animator>();
         target.GetComponent<playerScript>().inCutScene = true;
         BlackBars.SetActive(true);
-
-        Blood.SetActive(false);
-        gameUi.SetActive(false);
         StartCoroutine(StartCinematicScene());
     }
     void FixedUpdate()
@@ -44,36 +34,32 @@ public class cameraControl : MonoBehaviour
             Debug.Log("dead");
             transform.position = new Vector3(boundInicio.position.x, transform.position.y, transform.position.z);
         }
+
+        if (movePlayer){
+            target.position = Vector3.SmoothDamp(target.position, move2.position, ref relvel, 0.01f * Time.deltaTime);
+        }
     }
 
     public IEnumerator startAnimationRoubo()
     {
-        yield return new WaitForSeconds(0.4f);
-        rouboNPC1.SetTrigger("attack");
+        yield return new WaitForSeconds(1f);
+        roubo.SetTrigger("move");
 
-        yield return new WaitForSeconds(0.5f);
-        rouboNPC2.SetTrigger("attack2");
-
-        yield return new WaitForSeconds(0.5f);
-        anim.SetTrigger("cut2");
+        target.position = move1.position;
+        yield return new WaitForSeconds(3f);
+        target.GetComponent<Animator>().SetTrigger("cutScene");
+        movePlayer = true;
 
         yield return new WaitForSeconds(2.5f);
 
-        //START GAME
-        gameUi.SetActive(true);
-
-        mission.text = "Ajude a sua filha";
-
-        missionText.SetTrigger("fadeIn");
+        roubo.gameObject.SetActive(false);
 
         anim.enabled = false;
         BlackBars.SetActive(false);
 
         target.GetComponent<playerScript>().inCutScene = false;
         target.GetComponent<Animator>().SetTrigger("idle");
-
-        Roubo.SetActive(false);
-        Blood.SetActive(true);
+        movePlayer = false;
     }
 
     private IEnumerator StartCinematicScene()
@@ -84,26 +70,6 @@ public class cameraControl : MonoBehaviour
         target.GetComponent<SpriteRenderer>().transform.Rotate(0, 180f, 0);
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("cut");
-    }
-
-    public IEnumerator StartCutScene3()
-    {
-        BlackBars.SetActive(true);
-        gameUi.SetActive(false);
-        target.GetComponent<playerScript>().inCutScene = true;
-        target.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 0f);
-        target.GetComponent<Animator>().SetBool("cutScene", true);
-        yield return new WaitForSeconds(3f);
-
-        BlackBars.SetActive(false);
-        gameUi.SetActive(true);
-        missionText.SetTrigger("fadeOut");
-        yield return new WaitForSeconds(0.2f);
-        mission.text = "Compre uma arma";
-        missionText.SetTrigger("fadeIn");
-        target.GetComponent<Animator>().SetBool("cutScene", false);
-
-        target.GetComponent<playerScript>().inCutScene = false;
     }
 }
 
