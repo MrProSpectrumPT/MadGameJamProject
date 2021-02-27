@@ -20,7 +20,7 @@ public class playerScript : MonoBehaviour
     public static int vidaAtual;
 
     private bool isJumping;
-    private bool facingRight;
+    public bool facingRight;
     private Animator anim;
     private float moveX;
 
@@ -36,7 +36,7 @@ public class playerScript : MonoBehaviour
     public Scene1 scene;
 
 
-
+    private bool send2;
     public int dialogCount;
 
     //SONS
@@ -108,12 +108,18 @@ public class playerScript : MonoBehaviour
                 anim.SetBool(getAttack(weapon), true);      
             }
         }
-
         if (moveX > 0 && facingRight) Flip();
-        
-
         else if (moveX < 0 && !facingRight) Flip();
         
+        if(dialogCount >= 4)
+        {
+            if (!send2)
+            {
+                send2 = true;
+                scene.canGoToLevel2();
+            }
+        }
+
 
         rb.velocity = new Vector2(moveX * speed, rb.velocity.y);
     }
@@ -190,6 +196,13 @@ public class playerScript : MonoBehaviour
         if (col.gameObject.layer == 6)
         {
             //GameManager.instance.GetComponent<GameManager>().instanceGroundColision(groundPosCheck);
+        }
+        if (col.gameObject.CompareTag("boundMax"))
+        {
+            if (scene.canSwitch)
+            {
+                StartCoroutine(scene.level.loadScene(2));
+            }
         }
     }
 
