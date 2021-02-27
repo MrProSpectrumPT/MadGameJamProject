@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class inimigo : MonoBehaviour
 {
@@ -158,6 +159,10 @@ public class inimigo : MonoBehaviour
 
     void morreuCheck(){
         if(vida < 0){
+            if (SceneManager.GetActiveScene().buildIndex == 2 || SceneManager.GetActiveScene().buildIndex == 3)
+            {
+                GameObject.Find("Manager").GetComponent<KillStatus>().countDeadEnemys += 1;
+            }
             Animator.SetInteger("anim", 4); //morte
             morreu = true;
         }

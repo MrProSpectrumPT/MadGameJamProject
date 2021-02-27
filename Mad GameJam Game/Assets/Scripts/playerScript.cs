@@ -33,8 +33,7 @@ public class playerScript : MonoBehaviour
 
     public bool canAttack = false;
 
-    public Scene1 scene;
-
+    public Scene1 scene1;
 
     private bool send2;
     public int dialogCount;
@@ -51,6 +50,10 @@ public class playerScript : MonoBehaviour
 
         //Set Vida
         vidaAtual = maxVida;
+
+        canAttack = Travel.canAttack;
+        weapon = Travel.weaponID;
+        vidaAtual = Travel.vida;
     }
 
    
@@ -116,7 +119,7 @@ public class playerScript : MonoBehaviour
             if (!send2)
             {
                 send2 = true;
-                scene.canGoToLevel2();
+                scene1.canGoToLevel2();
             }
         }
 
@@ -173,7 +176,7 @@ public class playerScript : MonoBehaviour
     public void Attack2()
     {
         atacarSom.pitch = Random.Range(1f, 1.1f);
-        Collider2D[] cols = Physics2D.OverlapCircleAll(attack2Pos.position, 0.5f);
+        Collider2D[] cols = Physics2D.OverlapCircleAll(attack2Pos.position, 0.7f);
         CheckCircle(cols);
     }
 
@@ -199,9 +202,16 @@ public class playerScript : MonoBehaviour
         }
         if (col.gameObject.CompareTag("boundMax"))
         {
-            if (scene.canSwitch)
+            if (scene1.canSwitch)
             {
-                StartCoroutine(scene.level.loadScene(2));
+                StartCoroutine(scene1.level.loadScene(2));
+            }
+        }
+        else if (col.gameObject.CompareTag("boundMaxLevel2"))
+        {
+            if (GameObject.Find("Manager").GetComponent<KillStatus>().canSwitch)
+            {
+                StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(3));
             }
         }
     }
@@ -211,7 +221,7 @@ public class playerScript : MonoBehaviour
         if (col.gameObject.CompareTag("cutScene3"))
         {
             Debug.Log("hye");
-            StartCoroutine(scene.StartCutScene3());
+            StartCoroutine(scene1.StartCutScene3());
             Destroy(col.gameObject);
         }
     }
@@ -227,6 +237,7 @@ public class playerScript : MonoBehaviour
         hitSom.Play();
         anim.SetTrigger("hit");
         vidaAtual -= dano;
+        Travel.vida = vidaAtual;
     }
 
 }
