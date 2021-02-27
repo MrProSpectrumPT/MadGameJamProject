@@ -19,6 +19,12 @@ public class cameraControl : MonoBehaviour
     {
         StartCoroutine(transform.Find("GameControl").GetComponent<Scene1>().startAnimationRoubo());
     }
+    public void detachCamera()
+    {   
+        GameObject.Find("BoundsMinCeleiro").GetComponent<BoxCollider2D>().enabled = true;
+        Debug.Log("Ah e tal detach!");
+        this.enabled = false;
+    }
 }
 
 

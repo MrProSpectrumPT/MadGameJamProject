@@ -238,6 +238,12 @@ public class playerScript : MonoBehaviour
                 Scene3.segundaSCENE = true;
             }   
         }
+        if (col.gameObject.name == "CameraDetachTrigger")
+        {
+            Debug.Log("Trigger");
+            GameObject.Find("Main Camera").GetComponent<cameraControl>().detachCamera();
+            
+        }
     }
 
     private void Flip()
