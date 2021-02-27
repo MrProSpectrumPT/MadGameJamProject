@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4254672640061467563}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,6 +240,9 @@ MonoBehaviour:
   attack1Pos: {fileID: 4254672639082394465}
   attack2Pos: {fileID: 4254672639899053969}
   inCutScene: 0
+  weapon: 0
+  canAttack: 0
+  cam: {fileID: 0}
 --- !u!114 &4254672640061467560
 MonoBehaviour:
   m_ObjectHideFlags: 0

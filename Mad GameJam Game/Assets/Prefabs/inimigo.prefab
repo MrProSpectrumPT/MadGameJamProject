@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 6021945027695144078}
   - component: {fileID: 6021945027695144072}
   - component: {fileID: 6021945027695144073}
-  - component: {fileID: 3330147716403248598}
+  - component: {fileID: -8668633878933656222}
   m_Layer: 8
   m_Name: inimigo
   m_TagString: enemy
@@ -220,7 +220,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &3330147716403248598
+--- !u!50 &-8668633878933656222
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -235,9 +235,9 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
