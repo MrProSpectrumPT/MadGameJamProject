@@ -8,7 +8,7 @@ public class MainMenuScript : MonoBehaviour
     
     public void PlayButton ()
     {
-        SceneManager.LoadScene("Level01");
+        SceneManager.LoadScene("RealLevel01");
     }
 
     public void QuitButton ()
