@@ -5363,7 +5363,7 @@ MonoBehaviour:
   TextIntroduction: {fileID: 441545985}
   level: {fileID: 1804484080}
   introduction: {fileID: 813801759}
-  sword: {fileID: 0}
+  sword: {fileID: 1782050588}
 --- !u!4 &620260951
 Transform:
   m_ObjectHideFlags: 0
@@ -13598,7 +13598,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7845209357206926031, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.141
       objectReference: {fileID: 0}
     - target: {fileID: 7845209357206926031, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
       propertyPath: m_PlayOnAwake
@@ -16826,6 +16826,11 @@ Transform:
   m_Father: {fileID: 186319040}
   m_RootOrder: 60
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1782050588 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4391798293343484459, guid: 083e779986aefae488cba85df8751cef, type: 3}
+  m_PrefabInstance: {fileID: 760178055}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1793776450
 PrefabInstance:
   m_ObjectHideFlags: 0
