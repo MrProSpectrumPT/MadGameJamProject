@@ -118,7 +118,7 @@ public class Scene1 : MonoBehaviour
     public void SpawnEnemy()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Abata o vilão";
+        mission.text = "Abata o vilï¿½o";
         missionText.SetTrigger("fadeIn");
         Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
     }
@@ -126,7 +126,7 @@ public class Scene1 : MonoBehaviour
     public void sendMissionSearch()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Procure informaçoes sobre os viloes";
+        mission.text = "Procure informaï¿½oes sobre os viloes";
         missionText.SetTrigger("fadeIn");
         canSpeak = true;
     }
