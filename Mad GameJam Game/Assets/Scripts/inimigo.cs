@@ -19,6 +19,7 @@ public class inimigo : MonoBehaviour
     public float speed;
     public int ataque;
     public bool virado;
+    bool morreu;
 
     //ATAQUE
     public Transform ataquePosCheck;
@@ -30,6 +31,10 @@ public class inimigo : MonoBehaviour
     ///
     Animator Animator;
     bool levouDano;
+    public Transform groundPosCheck;
+    public LayerMask ground;
+    public bool groundCheck;
+    float tempoDano;
 
 
     // Start is called before the first frame update
@@ -39,18 +44,22 @@ public class inimigo : MonoBehaviour
         player = GameObject.Find("Player");
 
         virado = false;
+        morreu = false;
 
         tempo = tempAtaque;
 
         Animator = GetComponent<Animator>();
         levouDano = false;
+        groundCheck = false;
+        tempoDano = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(playerAtacou == true && Vector3.Distance(player.transform.position, transform.position) < 5){   
+        if(playerAtacou == true && Vector3.Distance(player.transform.position, transform.position) < 10 && morreu == false){   
 
+            morreuCheck();
 
             //CENA DE FICAR VIRADO PARA O PLAYER 
             if(virado == true){
@@ -66,10 +75,19 @@ public class inimigo : MonoBehaviour
             
             //MOVIMENTO e ATAQUE
             if(levouDano == true){
-                Animator.SetInteger("anim", 0); //idle
-                levouDano = false;
+                tempoDano += Time.deltaTime;
+
+                if(tempoDano > 0.2f){
+                    groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
+                    if(groundCheck == true){
+                        Animator.SetInteger("anim", 0); //IDLE
+                        levouDano = false;
+                    }
+                }
+                
+                
             }
-            if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
+            else if(Vector3.Distance(player.transform.position, transform.position) > distParaAtacar){
 
                 posPlayer = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
                 transform.position = Vector2.Lerp(transform.position, posPlayer, speed * Time.fixedDeltaTime);
@@ -92,6 +110,7 @@ public class inimigo : MonoBehaviour
             //parado
             Animator.SetInteger("anim", 0); //IDLE
         }
+
     }
 
     void atacar(){
@@ -111,14 +130,35 @@ public class inimigo : MonoBehaviour
     }
 
     public void TakeDamage(int dano){
-        vida -= dano;
-        levouDano = true;
-        Animator.SetInteger("anim", 3); //dano
+
+        if(morreu == false){
+            vida -= dano;
+            Animator.SetInteger("anim", 3); //dano
+            levouDano = true;
+            groundCheck = false;
+            tempoDano = 0;
+
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            rb.AddForce(transform.up * 200);
+            if(virado == true){
+                rb.AddForce(transform.right * -150);
+            }
+            else{
+                rb.AddForce(transform.right * 150);
+            }
+        }
     }
 
 
     void Flip(){
         transform.Rotate(0, 180, 0);
         virado = !virado;
+    }
+
+    void morreuCheck(){
+        if(vida < 0){
+            Animator.SetInteger("anim", 4); //morte
+            morreu = true;
+        }
     }
 }

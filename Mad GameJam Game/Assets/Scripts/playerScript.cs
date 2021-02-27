@@ -138,13 +138,6 @@ public class playerScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("enemy"))
             {
-                col.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
-                if(col.gameObject.GetComponent<inimigo>().virado == true){
-                    col.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * -200);
-                }
-                else{
-                    col.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 200);
-                }
                 col.gameObject.GetComponent<inimigo>().TakeDamage(10);
             }
         }
@@ -185,4 +178,5 @@ public class playerScript : MonoBehaviour
     {
         vidaAtual -= dano;
     }
+
 }
