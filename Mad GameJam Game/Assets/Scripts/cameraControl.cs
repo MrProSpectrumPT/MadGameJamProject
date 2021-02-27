@@ -111,6 +111,9 @@ public class cameraControl : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        missionText.SetTrigger("fadeOut");
+        mission.text = "Abata o vilão";
+        missionText.SetTrigger("fadeIn");
         Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
     }
 }
