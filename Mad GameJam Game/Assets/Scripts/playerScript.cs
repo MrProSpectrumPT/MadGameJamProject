@@ -43,6 +43,10 @@ public class playerScript : MonoBehaviour
     public AudioSource atacarSom;
     public AudioSource correrSom;
 
+
+    //Sleep
+    public Animator textSleep;
+    public bool canSleep;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -83,6 +87,8 @@ public class playerScript : MonoBehaviour
             correrSom.Stop();
         }
 
+        Debug.Log(rb.velocity.y);
+
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping)
         {
             rb.AddForce(Vector3.up * jumpForce);
@@ -90,12 +96,13 @@ public class playerScript : MonoBehaviour
             anim.SetBool("isJumping", true);
             anim.SetBool("isFalling", false);
         }
-        else if (rb.velocity.y < 0 && isJumping)
+        else if (rb.velocity.y < 0)
         {
+            isJumping = true;
             anim.SetBool("isJumping", false);
             anim.SetBool("isFalling", true);
         }
-        else if(rb.velocity.y == 0 && groundCheck && isJumping)
+        else if(groundCheck)
         {
             isJumping = false;
             anim.SetBool("isJumping", false);
@@ -121,6 +128,12 @@ public class playerScript : MonoBehaviour
                 send2 = true;
                 scene1.canGoToLevel2();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && canSleep)
+        {
+            canSleep = false;
+            GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(5);
         }
 
 
@@ -243,6 +256,26 @@ public class playerScript : MonoBehaviour
             Debug.Log("Trigger");
             GameObject.Find("Main Camera").GetComponent<cameraControl>().detachCamera();
             
+        }
+
+        if (col.gameObject.name == "TriggerBox01")
+        {
+            StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().goToHome(this.gameObject));
+        }
+
+        if(col.gameObject.name == "GoToSleep")
+        {
+            textSleep.SetBool("sleep", true);
+            canSleep = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.name == "GoToSleep")
+        {
+            textSleep.SetBool("sleep", false);
+            canSleep = false;
         }
     }
 
