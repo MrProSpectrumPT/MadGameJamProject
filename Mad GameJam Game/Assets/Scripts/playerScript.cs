@@ -33,7 +33,9 @@ public class playerScript : MonoBehaviour
 
     public bool canAttack = false;
 
-    public cameraControl cam;
+    public Scene1 scene;
+
+    public int dialogCount;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -173,7 +175,7 @@ public class playerScript : MonoBehaviour
         if (col.gameObject.CompareTag("cutScene3"))
         {
             Debug.Log("hye");
-            StartCoroutine(cam.StartCutScene3());
+            StartCoroutine(scene.StartCutScene3());
             Destroy(col.gameObject);
         }
     }
@@ -186,6 +188,7 @@ public class playerScript : MonoBehaviour
 
     public void TakeDamage(int dano)
     {
+        anim.SetTrigger("hit");
         vidaAtual -= dano;
     }
 

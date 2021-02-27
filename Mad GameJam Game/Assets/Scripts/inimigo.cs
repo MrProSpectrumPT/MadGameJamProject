@@ -122,9 +122,6 @@ public class inimigo : MonoBehaviour
         {
             if (col.gameObject.name == "Player")
             {
-                //FORCAS APLICADAS
-                col.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * 200);
-                
                 col.gameObject.GetComponent<playerScript>().TakeDamage(ataque);
             }
         }
