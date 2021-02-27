@@ -36,6 +36,11 @@ public class inimigo : MonoBehaviour
     public bool groundCheck;
     float tempoDano;
 
+    //SONS
+    public AudioSource hitSom;
+    public AudioSource atacarSom;
+    public AudioSource correrSom;
+
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +121,8 @@ public class inimigo : MonoBehaviour
 
     void atacar(){
 
+        atacarSom.Play();
+
         Collider2D[] cols = Physics2D.OverlapCircleAll(ataquePosCheck.position, 0.5f);
         
         foreach (Collider2D col in cols)
@@ -141,6 +148,8 @@ public class inimigo : MonoBehaviour
 
             GetComponent<Rigidbody2D>().AddForce(transform.up * 180);
             GetComponent<Rigidbody2D>().AddForce(transform.right * 100);
+
+            hitSom.Play();
         }
     }
 

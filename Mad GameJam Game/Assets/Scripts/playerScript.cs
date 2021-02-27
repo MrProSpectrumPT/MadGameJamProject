@@ -34,6 +34,9 @@ public class playerScript : MonoBehaviour
     public bool canAttack = false;
 
     public cameraControl cam;
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
