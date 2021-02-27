@@ -28,6 +28,8 @@ public class playerScript : MonoBehaviour
     public Transform attack1Pos;
     public Transform attack2Pos;
     private bool attacking;
+
+    public bool inCutScene;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -42,6 +44,8 @@ public class playerScript : MonoBehaviour
    
     void Update()
     {
+        if (inCutScene) return;
+
         moveX = Input.GetAxis("Horizontal");
         groundCheck = Physics2D.OverlapCircle(groundPosCheck.position, 0.5f, ground);
 
