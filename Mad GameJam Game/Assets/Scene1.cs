@@ -113,8 +113,11 @@ public class Scene1 : MonoBehaviour
             Roubo.SetActive(false);
             Blood.SetActive(true);
         }
+        else
+        {
+            GameObject.Find("scenaFinal").GetComponent<scenFinal>().canGo = true;
+        }
 
-        GameObject.Find("scenaFinal").GetComponent<scenFinal>().canGo = true;
     }
 
     public IEnumerator StartCinematicScene()

@@ -12,7 +12,7 @@ public class loja : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            if(!scene.mission.text.Equals("Ajude a sua filha") && !haveWeapon)
+            if(!scene.mission.text.Equals("AJUDE A SUA FILHA") && !haveWeapon)
             {
                 lojaUI.SetActive(true);
                 scene.player.GetComponent<playerScript>().inCutScene = true;
