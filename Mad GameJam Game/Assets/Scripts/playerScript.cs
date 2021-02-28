@@ -59,7 +59,7 @@ public class playerScript : MonoBehaviour
 
         //Set Vida
         vidaAtual = 10;
-
+        GameObject.Find("Travel").transform.Find("UI").transform.Find("UI-GAME").transform.Find("vida").GetComponent<Animator>().SetTrigger("maxVida");
         canAttack = Travel.canAttack;
         weapon = Travel.weaponID;
         vidaAtual = Travel.vida;
@@ -94,8 +94,6 @@ public class playerScript : MonoBehaviour
         else{
             correrSom.Stop();
         }
-
-        Debug.Log(rb.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && groundCheck && !isJumping)
         {
@@ -141,7 +139,7 @@ public class playerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && canSleep)
         {
             canSleep = false;
-            GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(5);
+            StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(5));
         }
 
 

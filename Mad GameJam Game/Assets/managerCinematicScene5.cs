@@ -120,7 +120,7 @@ public class managerCinematicScene5 : MonoBehaviour
         WifeTextTalk.text = "";
         MeTextTalk.text = "";
 
-        GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(6);
+        StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(6));
     }
 
 
