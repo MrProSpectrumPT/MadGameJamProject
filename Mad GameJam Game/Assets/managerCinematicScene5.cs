@@ -40,6 +40,7 @@ public class managerCinematicScene5 : MonoBehaviour
         wife.enabled = false;
         me.enabled = false;
         player = GameObject.Find("Player").gameObject;
+        player.GetComponent<playerScript>().inCutScene = true;
         GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(true);
         GameObject.Find("Travel").transform.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(false);
         StartCoroutine(startCinematic());
