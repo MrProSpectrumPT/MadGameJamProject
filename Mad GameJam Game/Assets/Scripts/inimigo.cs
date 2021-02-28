@@ -102,7 +102,7 @@ public class inimigo : MonoBehaviour
             }
             else{
 
-                if(tempo >= tempAtaque){
+                if(tempo >= tempAtaque && playerScript.vidaAtual > 0){
                     atacar();
                     tempo = 0;
                     Animator.SetInteger("anim", 2); //ataque
@@ -163,6 +163,7 @@ public class inimigo : MonoBehaviour
             {
                 GameObject.Find("Manager").GetComponent<KillStatus>().countDeadEnemys += 1;
             }
+
             Animator.SetInteger("anim", 4); //morte
             morreu = true;
 
