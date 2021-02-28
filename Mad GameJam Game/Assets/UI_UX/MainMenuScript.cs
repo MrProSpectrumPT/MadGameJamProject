@@ -7,16 +7,40 @@ using UnityEngine.UI;
 public class MainMenuScript : MonoBehaviour
 {
     
+    public Dropdown resolutionDropdown;
     public GameObject FullscreenToggle;
     public GameObject VSyncToggle; 
     public GameObject ApplyButton;
     public bool fullscreen;
     public bool vsync;
     public int resolution;
+    Resolution[] resolutions;
     
+
+    void Start ()
+    {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+            if (resolutions[i].width == Screen.width &&
+                resolutions[i].height == Screen.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
     public void PlayButton ()
     {
-        SceneManager.LoadScene("RealLevel01");
+        SceneManager.LoadScene("RealLevel01_1");
     }
 
     public void QuitButton ()
@@ -39,6 +63,12 @@ public class MainMenuScript : MonoBehaviour
             QualitySettings.vSyncCount = 1;
         }
         else QualitySettings.vSyncCount = 0;
+    }
+
+    public void newresolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
 }
