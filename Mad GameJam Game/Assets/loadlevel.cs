@@ -9,7 +9,7 @@ public class loadlevel : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0) anim.SetTrigger("next");
+        anim.SetTrigger("next");
     }
     public IEnumerator loadStartGame()
     {
@@ -22,6 +22,14 @@ public class loadlevel : MonoBehaviour
 
     public IEnumerator loadScene(int index)
     {
+        anim.SetTrigger("load");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(index);
+    }
+
+    public IEnumerator loadSceneSlow(int index)
+    {
+        yield return new WaitForSeconds(3f);
         anim.SetTrigger("load");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(index);

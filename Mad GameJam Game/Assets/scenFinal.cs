@@ -19,6 +19,9 @@ public class scenFinal : MonoBehaviour
 
     public bool canGo;
 
+    public GameObject finalLetter;
+    public Animator finalLetterAnim;
+
     private void Start()
     {
         HomemFruta.enabled = false;
@@ -29,14 +32,13 @@ public class scenFinal : MonoBehaviour
         if (canGo)
         {
             GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize -= 0.01f;
-            if (GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize <= 1)
+            if (GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize <= 2)
             {
-                GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 1;
+                GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 2;
 
-                StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(0));
+                StartCoroutine(showFinalLetter());
 
             }
-            GameObject.Find("Main Camera").GetComponent<cameraControl>().offset = new Vector3(0, -10, -20);
 
             GameObject.Find("UI").transform.Find("BB").gameObject.SetActive(true);
             GameObject.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(false);
@@ -48,6 +50,16 @@ public class scenFinal : MonoBehaviour
                 musicTensa.Play();
             }
         }
+    }
+
+    public IEnumerator showFinalLetter()
+    {
+        GameObject.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(false);
+        GameObject.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(false);
+        finalLetter.SetActive(true);
+        finalLetterAnim.SetTrigger("open");
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadSceneSlow(0));
     }
 
     public IEnumerator startFinalCinematic()

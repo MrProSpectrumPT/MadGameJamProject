@@ -40,10 +40,9 @@ public class MainMenuScript : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-
-        if (GameObject.Find("Travel").gameObject != null)
+        if(GameObject.Find("Travel").gameObject != null)
         {
-            GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
+            GameObject.Find("Travel").transform.Find("sons").transform.Find("musicTenso").GetComponent<AudioSource>().Stop();
         }
     }
     public void PlayButton ()

@@ -47,7 +47,10 @@ public class Scene1 : MonoBehaviour
     public bool canSwitch;
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 6)
+        mission = GameObject.Find("Travel").transform.Find("UI").transform.Find("UI-GAME").transform.Find("MyMission").GetComponent<Text>();
+        missionText = GameObject.Find("Travel").transform.Find("UI").transform.Find("UI-GAME").transform.Find("MyMission").GetComponent<Animator>();
+        GameObject.Find("Travel").transform.Find("sons").transform.Find("musicTenso").GetComponent<AudioSource>().Play();
+        if (SceneManager.GetActiveScene().buildIndex == 6)
         {
             volume.profile.TryGet(out vignette);
             volume.profile.TryGet(out chromatic);
@@ -85,13 +88,13 @@ public class Scene1 : MonoBehaviour
         //START GAME
         if (SceneManager.GetActiveScene().buildIndex == 1) { 
             gameUi.SetActive(true);
+            BlackBars.SetActive(false);
 
             mission.text = "AJUDE A SUA FILHA";
 
             missionText.SetTrigger("fadeIn");
 
             anim.enabled = false;
-            BlackBars.SetActive(false);
 
             player.GetComponent<playerScript>().inCutScene = false;
             player.GetComponent<Animator>().SetTrigger("idle");
