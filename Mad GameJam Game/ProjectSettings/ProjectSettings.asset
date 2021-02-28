@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TeamAFK
-  productName: Klinwood
+  productName: MadGameJamProject
   defaultCursor: {fileID: 2800000, guid: 8f28955d92038974a9b04aafaeea79b0, type: 3}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
