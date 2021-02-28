@@ -29706,6 +29706,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1081261760}
     m_Modifications:
+    - target: {fileID: 7845209357206926031, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
+      propertyPath: m_Pitch
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845209357206926031, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
+      propertyPath: m_Volume
+      value: 0.095
+      objectReference: {fileID: 0}
     - target: {fileID: 7845209357879490908, guid: 34cd4db3a2aa44b4bb8971ec4b88606c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -32804,8 +32812,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e4c9bd300e5735a44a4214a77bd7be32, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.72
+  m_Pitch: 1.1
   Loop: 1
   Mute: 0
   Spatialize: 0
