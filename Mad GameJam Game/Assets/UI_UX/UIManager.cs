@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
     {
         AudioListener.pause = false;
         Time.timeScale = 1;
+        AudioManager.instance.ClickSound();
     }
     public void QuitToMainMenu()
     {
@@ -60,7 +61,9 @@ public class UIManager : MonoBehaviour
     public void QuitButton()
     {
         Debug.Log("This is working");
+        AudioManager.instance.ClickSound();
         Application.Quit();
+
     }
 
     public void OptionsButton()
