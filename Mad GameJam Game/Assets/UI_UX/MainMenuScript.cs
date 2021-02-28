@@ -19,10 +19,6 @@ public class MainMenuScript : MonoBehaviour
 
     void Start ()
     {
-        if(GameObject.Find("Travel").gameObject != null)
-        {
-            GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
-        }
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -42,6 +38,11 @@ public class MainMenuScript : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        if(GameObject.Find("Travel").gameObject != null)
+        {
+            GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
+        }
     }
     public void PlayButton ()
     {
