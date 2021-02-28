@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour
     public GameObject AudioMenu;
 
     public AudioSource audio;
-
     void Awake()
     {
         if(instance == null)
