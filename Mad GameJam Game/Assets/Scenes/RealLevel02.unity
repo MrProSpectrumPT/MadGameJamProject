@@ -19436,7 +19436,7 @@ PrefabInstance:
     - target: {fileID: 9140027956750046688, guid: d072865b6d2117e43a9c69386dbb0bec, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1411123509}
+      objectReference: {fileID: 0}
     - target: {fileID: 9140027956750046688, guid: d072865b6d2117e43a9c69386dbb0bec, type: 3}
       propertyPath: m_SortingLayerID
       value: 1074652653

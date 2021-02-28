@@ -9,6 +9,7 @@ public class loadlevel : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         anim.SetTrigger("next");
     }
     public IEnumerator loadStartGame()
