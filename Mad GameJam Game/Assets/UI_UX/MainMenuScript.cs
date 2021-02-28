@@ -72,9 +72,10 @@ public class MainMenuScript : MonoBehaviour
         else QualitySettings.vSyncCount = 0;
     }
 
-    public void newresolution(int resolutionIndex)
+    public void newresolution()
     {
-        Resolution resolution = resolutions[resolutionIndex];
+
+        Resolution resolution = resolutions[resolutionDropdown.value];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 }
