@@ -64,7 +64,7 @@ public class Scene3 : MonoBehaviour
                 barras.SetActive(false);
                 GameObject.Find("Enemys").gameObject.SetActive(true);
                 GameObject.Find("UI").transform.Find("UI-GAME").gameObject.SetActive(true);
-                GameObject.Find("UI").transform.Find("UI-GAME").gameObject.transform.Find("MyMission").GetComponent<UnityEngine.UI.Text>().text = "...vai para casa...";
+                GameObject.Find("UI").transform.Find("UI-GAME").gameObject.transform.Find("MyMission").GetComponent<UnityEngine.UI.Text>().text = "VA PARA CASA...";
 
                 //CAMERA
                 GameObject.Find("Main Camera").GetComponent<Camera>().orthographicSize = 5f;

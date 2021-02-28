@@ -29,13 +29,13 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
-
-    private void Start()
-    {
-        GameObject.Find("Travel").transform.Find("UI").GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-    }
     private void Update()
     {
+        if(GameObject.Find("Travel").transform.Find("UI").GetComponent<Canvas>().worldCamera == null)
+        {
+            GameObject.Find("Travel").transform.Find("UI").GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        }
+
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
             Destroy(this.gameObject);
