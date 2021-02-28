@@ -67,20 +67,6 @@ public class Scene1 : MonoBehaviour
 
         StartCoroutine(IntroductionMovie());
     }
-
-    private void Update()
-    {
-        enemy = GameObject.FindGameObjectWithTag("enemy");
-        if (enemy == null) return;
-        if (enemy.GetComponent<inimigo>().morreu && player.GetComponent<playerScript>().canAttack)
-        {
-            if (!send)
-            {
-                send = true;
-                sendMissionSearch();
-            }
-        }
-    }
     public IEnumerator startAnimationRoubo()
     {
         yield return new WaitForSeconds(0.4f);

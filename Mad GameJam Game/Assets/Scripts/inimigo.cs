@@ -165,6 +165,11 @@ public class inimigo : MonoBehaviour
             }
             Animator.SetInteger("anim", 4); //morte
             morreu = true;
+
+            if(SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                GameObject.Find("Main Camera").transform.Find("GameControl").GetComponent<Scene1>().sendMissionSearch();
+            }
         }
     }
 }
