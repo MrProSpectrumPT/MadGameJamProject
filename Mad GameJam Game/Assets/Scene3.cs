@@ -59,7 +59,7 @@ public class Scene3 : MonoBehaviour
             //GameObject.Find("Enemys").gameObject.SetActive(false);
 
 
-            if(tempoPrim > 5){
+            if(tempoPrim > 3.2f){
                 musicTensa.Stop();
                 barras.SetActive(false);
                 GameObject.Find("Enemys").gameObject.SetActive(true);

@@ -48,7 +48,7 @@ public class inimigo : MonoBehaviour
     {
         playerAtacou = true;
         player = GameObject.Find("Player");
-        speed = Random.Range(speed - 0.1f, speed + 0.03f); //speed diferente
+        speed = Random.Range(speed - 0.1f, speed + 0.04f); //speed diferente
 
         virado = false;
         morreu = false;
