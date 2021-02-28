@@ -19,6 +19,11 @@ public class MainMenuScript : MonoBehaviour
 
     void Start ()
     {
+        if(GameObject.Find("Travel").gameObject != null)
+        {
+            GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
+        }
+
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -40,7 +45,7 @@ public class MainMenuScript : MonoBehaviour
     }
     public void PlayButton ()
     {
-        SceneManager.LoadScene("RealLevel01_1");
+        StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(1));
     }
 
     public void QuitButton ()
