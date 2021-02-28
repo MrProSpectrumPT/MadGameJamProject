@@ -12001,6 +12001,7 @@ MonoBehaviour:
   MeTextTalk: {fileID: 1959100018}
   me: {fileID: 982695079}
   wife: {fileID: 984533823}
+  volume: {fileID: 1244340894}
   delay: 0.1
   fullText: 
 --- !u!4 &783340170
