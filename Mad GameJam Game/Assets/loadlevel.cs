@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class loadlevel : MonoBehaviour
 {
     public Animator anim;
+
+    private void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 0) anim.SetTrigger("next");
+    }
     public IEnumerator loadStartGame()
     {
         anim.SetTrigger("load");

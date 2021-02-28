@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 2887e1984677eb24e93be1c8f290bb41
   - enabled: 1
-    path: Assets/Scenes/RealLevel01.unity
-    guid: bf67b05373b694047b74fc92a207ba5d
+    path: Assets/Scenes/RealLevel01 1.unity
+    guid: dbdc0f26506d38245b844c69ab06a54b
   - enabled: 1
     path: Assets/Scenes/RealLevel02.unity
     guid: 6d0d3f06186915f4fb9d67b5f8852d19
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CopyLevel04 1.unity
     guid: a7f270050ea98634eb0cd220965de0db
+  - enabled: 1
+    path: Assets/Scenes/ultimo.unity
+    guid: bf67b05373b694047b74fc92a207ba5d
   m_configObjects: {}

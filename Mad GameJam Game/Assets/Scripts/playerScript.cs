@@ -48,8 +48,12 @@ public class playerScript : MonoBehaviour
     //Sleep
     public Animator textSleep;
     public bool canSleep;
+
+    //RESTART
+    private bool restarted;
     void Start()
     {
+        restarted = false;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
@@ -299,7 +303,13 @@ public class playerScript : MonoBehaviour
 
     void morreuCheck(){
         if(vidaAtual <= 0){
-            StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(SceneManager.GetActiveScene().buildIndex));
+            if (!restarted)
+            {
+                Debug.Log("dawd");
+                restarted = true;
+                Travel.vida = 10;
+                StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(SceneManager.GetActiveScene().buildIndex));
+            }
         }  
     }
 

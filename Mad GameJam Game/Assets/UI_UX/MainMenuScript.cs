@@ -8,7 +8,8 @@ public class MainMenuScript : MonoBehaviour
     
     public void PlayButton ()
     {
-        SceneManager.LoadScene("RealLevel01");
+        Debug.Log("neh");
+        StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(1));
     }
 
     public void QuitButton ()
