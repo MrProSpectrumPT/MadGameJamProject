@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
-{
+{   
     
     public GameObject FullscreenToggle;
     public GameObject VSyncToggle; 
@@ -13,7 +13,14 @@ public class MainMenuScript : MonoBehaviour
     public bool fullscreen;
     public bool vsync;
     public int resolution;
-    
+
+    private void Start()
+    {
+        if (GameObject.Find("Travel").gameObject != null)
+        {
+            GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
+        }
+    }
     public void PlayButton ()
     {
         Debug.Log("neh");

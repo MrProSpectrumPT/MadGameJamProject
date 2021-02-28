@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Scene1 : MonoBehaviour
@@ -33,10 +36,35 @@ public class Scene1 : MonoBehaviour
     public loadlevel level;
     public GameObject introduction;
 
+    public Volume volume;
+    private Vignette vignette;
+    private ChromaticAberration chromatic;
+    private Tonemapping tone;
+    private FilmGrain film;
+    private ChannelMixer mixer;
+
     public AudioSource sword;
     public bool canSwitch;
     void Start()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            volume.profile.TryGet(out vignette);
+            volume.profile.TryGet(out chromatic);
+            volume.profile.TryGet(out tone);
+            volume.profile.TryGet(out film);
+            volume.profile.TryGet(out mixer);
+
+            vignette.active = false;
+            chromatic.active = false;
+            tone.active = false;
+            film.active = false;
+            mixer.active = false;
+        }
+
+        BlackBars = GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject;
+        gameUi = GameObject.Find("Travel").transform.Find("UI").transform.Find("UI-GAME").gameObject;
+
         StartCoroutine(IntroductionMovie());
     }
 
@@ -69,25 +97,30 @@ public class Scene1 : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
 
         //START GAME
-        gameUi.SetActive(true);
+        if (SceneManager.GetActiveScene().buildIndex == 1) { 
+            gameUi.SetActive(true);
 
-        mission.text = "Ajude a sua filha";
+            mission.text = "AJUDE A SUA FILHA";
 
-        missionText.SetTrigger("fadeIn");
+            missionText.SetTrigger("fadeIn");
 
-        anim.enabled = false;
-        BlackBars.SetActive(false);
+            anim.enabled = false;
+            BlackBars.SetActive(false);
 
-        player.GetComponent<playerScript>().inCutScene = false;
-        player.GetComponent<Animator>().SetTrigger("idle");
+            player.GetComponent<playerScript>().inCutScene = false;
+            player.GetComponent<Animator>().SetTrigger("idle");
 
-        Roubo.SetActive(false);
-        Blood.SetActive(true);
+            Roubo.SetActive(false);
+            Blood.SetActive(true);
+        }
+
+        GameObject.Find("scenaFinal").GetComponent<scenFinal>().canGo = true;
     }
 
-    private IEnumerator StartCinematicScene()
+    public IEnumerator StartCinematicScene()
     {
-        yield return new WaitForSeconds(3f);
+        if(SceneManager.GetActiveScene().buildIndex == 1) yield return new WaitForSeconds(3f);
+        else yield return new WaitForSeconds(1.5f);
         Debug.Log("grito!");
         yield return new WaitForSeconds(0.5f);
         player.GetComponent<SpriteRenderer>().transform.Rotate(0, 180f, 0);
@@ -118,7 +151,7 @@ public class Scene1 : MonoBehaviour
     public void SpawnEnemy()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Abata o vil�o";
+        mission.text = "ABATA O VILAO";
         missionText.SetTrigger("fadeIn");
         Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
     }
@@ -126,7 +159,7 @@ public class Scene1 : MonoBehaviour
     public void sendMissionSearch()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Procure informa�oes sobre os viloes";
+        mission.text = "PROCURE INFORMACOES DOS VILOES";
         missionText.SetTrigger("fadeIn");
         canSpeak = true;
     }
@@ -145,18 +178,31 @@ public class Scene1 : MonoBehaviour
 
     public void startGame()
     {
-        player.GetComponent<playerScript>().inCutScene = true;
-        BlackBars.SetActive(true);
-        Blood.SetActive(false);
-        gameUi.SetActive(false);
-        introduction.SetActive(false);
-        StartCoroutine(StartCinematicScene());
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            player.GetComponent<playerScript>().inCutScene = true;
+            BlackBars.SetActive(true);
+            Blood.SetActive(false);
+            gameUi.SetActive(false);
+            introduction.SetActive(false);
+            StartCoroutine(StartCinematicScene());
+        }
+        else
+        {
+            player.GetComponent<playerScript>().inCutScene = true;
+            BlackBars.SetActive(true);
+            Blood.SetActive(false);
+            gameUi.SetActive(false);
+            introduction.SetActive(false);
+
+            StartCoroutine(GameObject.Find("scenaFinal").GetComponent<scenFinal>().startFinalCinematic());
+        }
     }
 
     public void canGoToLevel2()
     {
         missionText.SetTrigger("fadeOut");
-        mission.text = "Siga o rasto de sangue";
+        mission.text = "SIGA O RASTO DE SANGUE";
         missionText.SetTrigger("fadeIn");
 
         canSwitch = true;
