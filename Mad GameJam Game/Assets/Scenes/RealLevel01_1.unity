@@ -6930,7 +6930,7 @@ PrefabInstance:
       objectReference: {fileID: 1910504837}
     - target: {fileID: 8433019480574382231, guid: fd90b2a9e18a35d479f7472d70bce51e, type: 3}
       propertyPath: dialogue
-      value: TEM CUIDADO JOVEM, NO QUE TE VAIS METER!!!
+      value: TEM CUIDADO JOVEM, EM KLINWOOD ACONTECEM COISAS MUITO ESTRANHAS!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd90b2a9e18a35d479f7472d70bce51e, type: 3}

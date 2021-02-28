@@ -91,7 +91,7 @@ public class scenFinal : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
 
         me.enabled = true;
-        fullText = "ESPERA!? ONDE ESTA A MINHA FILHA?!...";
+        fullText = "ESPERE! ONDE ESTA A MINHA FILHA?!...";
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
