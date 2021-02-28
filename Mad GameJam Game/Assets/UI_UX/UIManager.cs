@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     public void QuitToMainMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        StartCoroutine(GameObject.Find("LoadLevel").GetComponent<loadlevel>().loadScene(0));
         AudioManager.instance.QuitSound();
     }
     public void disablePanel()
@@ -54,6 +54,13 @@ public class UIManager : MonoBehaviour
         OptionsMenu.SetActive (false);
         VideoMenu.SetActive (false);
         AudioMenu.SetActive (false);
+    }
+
+
+    public void QuitButton()
+    {
+        Debug.Log("This is working");
+        Application.Quit();
     }
 
     public void OptionsButton()

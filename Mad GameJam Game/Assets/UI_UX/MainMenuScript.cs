@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
-    
+    public AudioSource audioPrincipal;
     public Dropdown resolutionDropdown;
     public GameObject FullscreenToggle;
     public GameObject VSyncToggle; 
@@ -19,6 +19,7 @@ public class MainMenuScript : MonoBehaviour
 
     void Start ()
     {
+        audioPrincipal.Play();
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -39,7 +40,8 @@ public class MainMenuScript : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        if(GameObject.Find("Travel").gameObject != null)
+
+        if (GameObject.Find("Travel").gameObject != null)
         {
             GameObject.Find("Travel").transform.Find("UI").transform.Find("BB").gameObject.SetActive(false);
         }
