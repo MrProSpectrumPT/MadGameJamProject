@@ -66,7 +66,7 @@ public class managerCinematicScene5 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
 
         me.enabled = true;
-        fullText = "BOM DIA AMOR... TIVE UM SONHO ESTRANHO...";
+        fullText = "BOM DIA QUERIDA... TIVE UM SONHO ESTRANHO...";
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
@@ -86,7 +86,7 @@ public class managerCinematicScene5 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
 
         me.enabled = true;
-        fullText = "...(DUVIDOSO)";
+        fullText = "QUE SURPRESA?";
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
@@ -96,7 +96,7 @@ public class managerCinematicScene5 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
 
         wife.enabled = true;
-        fullText = "VAMOS SER PAIS...";
+        fullText = "VAMOS TER UM BÉBÉ...";
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
@@ -106,7 +106,7 @@ public class managerCinematicScene5 : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
 
         me.enabled = true;
-        fullText = "ASSERIO!?... AINDA BEM...";
+        fullText = "ASSERIO?! MEU DEUS!... ESPERO QUE SEJA UMA MENINA!";
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText = fullText.Substring(0, i);
