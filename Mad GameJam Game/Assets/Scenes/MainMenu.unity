@@ -318,7 +318,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9201d1f83e1fa904886960fdce232f30, type: 3}
-    m_FontSize: 65
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: VOLTAR
+  m_Text: Back
 --- !u!222 &19597089
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EFEITOS
+  m_Text: Effects
 --- !u!222 &178384504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2130,7 +2130,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MUSICA
+  m_Text: 'Music
+
+'
 --- !u!222 &824946232
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5114,7 +5116,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "OP\xC7OES"
+  m_Text: Options
 --- !u!222 &1477708184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5641,7 +5643,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "RESOLU\xE7ao"
+  m_Text: Resolution
 --- !u!222 &1571266718
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6154,7 +6156,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Op\xE7oes\n"
+  m_Text: Options
 --- !u!222 &1723162089
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6471,7 +6473,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SAIR
+  m_Text: 'Quit
+
+'
 --- !u!222 &1750634636
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7477,7 +7481,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9201d1f83e1fa904886960fdce232f30, type: 3}
-    m_FontSize: 65
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -7488,7 +7492,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: voltar
+  m_Text: Back
 --- !u!222 &2018244395
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7567,7 +7571,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: JOGAR
+  m_Text: 'Play
+
+'
 --- !u!222 &2023194839
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7646,7 +7652,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: aplicar
+  m_Text: Apply
 --- !u!222 &2031145260
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7789,18 +7795,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 9201d1f83e1fa904886960fdce232f30, type: 3}
-    m_FontSize: 65
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 300
+    m_MaxSize: 85
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: VOLTAR
+  m_Text: Back
 --- !u!222 &2106731469
 CanvasRenderer:
   m_ObjectHideFlags: 0
