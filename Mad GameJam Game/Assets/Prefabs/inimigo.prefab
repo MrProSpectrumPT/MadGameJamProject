@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distParaAtacar: 1.7
   vida: 20
-  speed: 0.35
+  speed: 0.32
   ataque: 1
   virado: 0
   morreu: 0
