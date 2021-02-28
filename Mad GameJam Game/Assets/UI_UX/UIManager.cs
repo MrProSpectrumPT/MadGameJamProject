@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject PauseMenu;
     public GameObject VideoMenu;
     public GameObject AudioMenu;
+    public GameObject CreditsMenu;
 
     public AudioSource audio;
     void Awake()
@@ -28,7 +29,6 @@ public class UIManager : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
-
     private void Update()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
